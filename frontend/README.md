@@ -1,46 +1,165 @@
-# Getting Started with Create React App
+# Before coding
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## Run project
 
-In the project directory, you can run:
+-   **Working directory**
 
-### `npm start`
+```
+/mojProfesor/frontend
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   **Install dependencies**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```
+npm i
+npm install
 
-### `npm test`
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   **Run project**
 
-### `npm run build`
+```
+npm start
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   **Create production build**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+npm run build
+yarn run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   **Lint**
 
-### `npm run eject`
+```
+npm run lint
+yarn run lint
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+npm run lint -- --fix
+yarn run lint --fix
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   **Test**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+npm run test
+yarn run test
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Libraries
 
-## Learn More
+-   **Antd**
+-   **styled-components**
+-   **node-sass**
+-   **Axios**
+-   Eslint
+-   Prettier
+-   ...
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Prettier
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Create folder **.vscode** inside **frontend** folder.
+Inside **.vscode** create **settings.json**.
+
+```
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": false
+}
+
+```
+
+###### Warning
+
+This custom settngs will only work when **frontend** folder is a root folder
+
+## Eslint
+
+Eslint will seek to enforce good coding practices. To make it easier:
+
+-   Try to code better
+-   Run `npm run lint` to detect errors and warnings
+-   Run `npm run lint -- --fix` to fix errors and warning
+-   Install the vscode eslint plugin. The plugin will highlight errors. A blue light bulb may appear and when you press it, you will be able to repair the highlighted code snippet
+
+## Project structure
+
+```
+- /src
+
+- - /assets
+- - - /img
+- - - /scss
+- - - /css
+- - - /fonts
+
+- - /views
+- - /hooks
+- - /dal
+
+- - /utils
+- - - /constants
+
+- - /components
+- - - /common
+- - - /feature1
+- - - /feature2
+```
+
+## Env variables
+
+In our project we will use two types of **.env** files.
+
+1. **.env.development** (Used during development)
+2. **.env.production** (Injected during building)
+
+In order to create these files run
+
+```
+cp .env.development.dist .env.development
+cp .env.production.dist .env.production
+```
+
+**dist** files contain **.env** skeleton without vulnerable data
+
+**_Warning_**
+Make sure that **.env.development** and **.env.production** are included in your **.gitignore** file. Do not push those file to remote repository
+
+3. Env variables names should start with **REACT*APP***
+   for example **_REACT_APP_SECRET_KEY_**
+
+## Do's
+
+-   Install packages only using **npm** ~~yarn install~~ ~~yarn add~~
+-   You can run project using yarn
+-   Make sure your code is error free before creating a pull request
+
+## Don'ts
+
+-   Do not use npm run eject
+
+## Branch naming convention
+
+1. All github contain #xx id. For ex. #5
+2. For features **feature-#id** **_(for ex. feature-3)_**
+3. For bugs **fix-#id** **_(for ex. fix-3)_**
+
+## Pull request convention
+
+1. Pull request name **(Fix/ Feature)-#numer short_description**
+2. In pull request body include some screenshots documenting the changes
+3. Make share that in options you linked issue
+4. Remember to assing reviewer
+5. **Do not** merge your pull request by yourself
+
+#### FAQ (for new coders)
+
+> Difference between dependencies and devDependencies
+
+Dev dependencies are not included in production build
+
+##### This will file will be

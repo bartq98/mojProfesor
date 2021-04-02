@@ -31,3 +31,6 @@ yarn-error.log*
 
 # Local History for Visual Studio Code
 .history/
+
+.env.development
+.env.production
