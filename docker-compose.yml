@@ -1,0 +1,46 @@
+version: '3.7'
+
+networks:
+  mojprofesor_network:
+
+x-common-variables: &common-variables
+  APP_ENV: local
+
+services:
+
+  #######################################
+  # Database: Postgresql
+  #######################################
+  postgres_db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mojprofesor
+    ports:
+      - "6432:5432"
+    volumes:
+      - ./_data/postgres:/var/lib/postgres
+    networks:
+      - mojprofesor_network
+
+  #######################################
+  # Services: API
+  #######################################
+  api:
+    image: maven:3.8.1-openjdk-15
+    volumes:
+      - ./backend:/app
+      - ~/.m2:/root/.m2
+    working_dir: /app
+    networks:
+      - mojprofesor_network
+    ports:
+      - "7000:80"
+    environment:
+      <<: *common-variables
+      server_port: 80
+      DB_DATABASE: api
+    depends_on:
+      - postgres_db
+    command: "mvn spring-boot:run"
