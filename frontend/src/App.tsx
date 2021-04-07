@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { ReactView } from './views';
+import { ReactView } from 'views';
 
 type Props = {};
 
