@@ -12,3 +12,6 @@
 From root project run:
 
 `docker-compose up`
+
+#### Restart api service
+docker-compose up --build --force-recreate --no-deps api
