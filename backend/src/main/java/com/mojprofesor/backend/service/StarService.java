@@ -27,9 +27,10 @@ public class StarService {
             throw new StarAlreadyExistsException("Star already exists");
         }
 
-        StarEntity starEntity = new StarEntity();
-        starEntity.setOpinionId(request.getOpinion());
-        starEntity.setUserId(userId);
+        StarEntity starEntity = StarEntity.builder()
+                .opinionId(request.getOpinion())
+                .userId(userId)
+                .build();
 
         starRepository.save(starEntity);
     }
