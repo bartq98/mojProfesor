@@ -15,3 +15,6 @@ From root project run:
 
 #### Restart api service
 docker-compose up --build --force-recreate --no-deps api
+
+#### Backend docs
+http://localhost:7000/swagger-ui/index.html
