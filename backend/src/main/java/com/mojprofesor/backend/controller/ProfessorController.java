@@ -40,11 +40,8 @@ public class ProfessorController {
                                                        @PathVariable String lastName,
                                                        @RequestParam(defaultValue = "0") Integer page,
                                                        @RequestParam(defaultValue = "20") Integer size) {
-        try {
-            return professorService.getProfessorsByData(firstName, lastName, page, size);
-        } catch (NotFoundException e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-        }
+
+        return professorService.getProfessorsByFirstNameAndLastName(firstName, lastName, page, size);
     }
 
     @PostMapping

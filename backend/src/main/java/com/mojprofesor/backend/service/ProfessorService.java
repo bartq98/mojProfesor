@@ -34,21 +34,18 @@ public class ProfessorService {
     }
 
     public ProfessorResponse getProfessorById(@NonNull Long id) throws NotFoundException {
-        Optional<ProfessorEntity> professor = professorRepository.findById(id);
+        ProfessorEntity professorEntity = professorRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Not found professor of id: " + id));
 
-        if (professor.isPresent()) {
-            return ProfessorResponse.of(professor.get());
-        } else {
-            throw new NotFoundException("Not found professor of id: " + id);
-        }
+        return ProfessorResponse.of(professorEntity);
     }
 
-    public Page<ProfessorResponse> getProfessorsByData(String firstName, String lastName,
-                                                       Integer page, Integer size) throws NotFoundException {
+    public Page<ProfessorResponse> getProfessorsByFirstNameAndLastName(String firstName, String lastName,
+                                                       Integer page, Integer size) {
         Pageable requestPage = PageRequest.of(page, size);
 
-        List<ProfessorResponse> response = professorRepository.
-                findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(firstName, lastName, requestPage).stream().map(
+        List<ProfessorResponse> response = professorRepository
+                .findByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase(firstName, lastName, requestPage).stream().map(
                 ProfessorResponse::of
         ).collect(Collectors.toList());
 
