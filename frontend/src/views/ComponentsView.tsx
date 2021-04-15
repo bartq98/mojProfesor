@@ -17,7 +17,7 @@ const Container = styled.div`
 const ComponentsView: React.FC = () => (
     <Container>
         <Space direction="horizontal">
-            <SearchInput />
+            <SearchInput onSearch={() => {}} />
         </Space>
     </Container>
 );
