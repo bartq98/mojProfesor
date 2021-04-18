@@ -1,15 +1,18 @@
 package com.mojprofesor.backend.payload;
 
+import com.mojprofesor.backend.entity.LikeType;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 
 /**
  * @author Patryk Borchowiec
- * @since 0.0.0
  */
 @Data
-public class AddStarRequest {
+public class AddLikeRequest {
     @NotNull
     private Integer opinion;
+
+    @NotNull
+    private LikeType type;
 }

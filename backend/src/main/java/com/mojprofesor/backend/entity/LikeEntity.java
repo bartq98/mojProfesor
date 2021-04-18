@@ -16,11 +16,13 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "stars")
-public class StarEntity {
+@Entity(name = "likes")
+public class LikeEntity {
     @Id
     @GeneratedValue
     private long id;
+
+    private LikeType type;
 
     private long opinionId;
 
