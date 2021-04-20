@@ -11,21 +11,22 @@ type Props = {
     customHeight?: string;
     customFontSize?: string;
     onSearch: (value: string) => void;
+    onChange?: (e: string) => void;
 };
 
 type StyledProps = {
-    customWidth?: string;
-    customHeight?: string;
-    customFontSize?: string;
+    width?: string;
+    height?: string;
+    fontsize?: string;
 };
 
 const StyledSearch = styled(Search)<StyledProps>`
     input {
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
-        width: ${(props: StyledProps) => props.customWidth || 'initial'};
-        height: ${(props: StyledProps) => props.customHeight || 'initial'};
-        font-size: ${(props: StyledProps) => props.customFontSize || 'initial'};
+        width: ${(props: StyledProps) => props.width || 'initial'};
+        height: ${(props: StyledProps) => props.height || '34.8px'};
+        font-size: ${(props: StyledProps) => props.fontsize || 'initial'};
     }
     .ant-btn {
         border-bottom-right-radius: 20px !important;
@@ -38,17 +39,19 @@ const StyledSearch = styled(Search)<StyledProps>`
 const SearchInput: React.FC<Props> = ({
     placeholder,
     onSearch,
+    onChange,
     customHeight,
     customFontSize,
     customWidth,
 }: Props) => (
     <StyledSearch
         className="search-input"
-        customWidth={customWidth}
-        customFontSize={customFontSize}
-        customHeight={customHeight}
+        width={customWidth}
+        fontsize={customFontSize}
+        height={customHeight}
         placeholder={placeholder || ''}
         onSearch={onSearch}
+        onChange={e => onChange && onChange(e.target.value)}
         enterButton
     />
 );
@@ -58,6 +61,7 @@ SearchInput.defaultProps = {
     customFontSize: '',
     customHeight: '',
     customWidth: '',
+    onChange: () => {},
 };
 
 export default SearchInput;
