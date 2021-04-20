@@ -1,6 +1,6 @@
 import React from 'react';
 import { Space } from 'antd';
-import { Input } from 'components/common';
+import { Input, Mark } from 'components/common';
 import styled from 'styled-components';
 
 const { SearchInput } = Input;
@@ -16,8 +16,15 @@ const Container = styled.div`
 
 const ComponentsView: React.FC = () => (
     <Container>
-        <Space direction="horizontal">
+        <Space direction="vertical">
             <SearchInput onSearch={() => {}} />
+            <Space direction="horizontal">
+                <Mark.MarkRing mark={3.5} />
+                <Mark.MarkRing mark={5} />
+                <Mark.MarkRing mark={4} />
+                <Mark.MarkRing mark={2} />
+                <Mark.MarkRing mark={4.3} />
+            </Space>
         </Space>
     </Container>
 );
