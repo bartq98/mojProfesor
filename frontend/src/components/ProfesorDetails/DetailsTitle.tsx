@@ -7,7 +7,7 @@ type Props = {
     mark: number;
 };
 
-const { MarkNuber } = Mark;
+const { MarkNumber } = Mark;
 const { Title } = Text;
 
 const Contaier = styled.div`
@@ -15,7 +15,6 @@ const Contaier = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     flex-wrap: wrap;
-    padding: 2% 5% 2% 5%;
 `;
 
 const Section = styled.div<any>`
@@ -34,7 +33,7 @@ const DetailsTitle: React.FC<Props> = ({ user, mark }: Props) => (
             <Title level={3}>Wydział Mechaniczny</Title>
         </Section>
         <Section align="center">
-            <MarkNuber mark={mark} />
+            <MarkNumber mark={mark} />
         </Section>
     </Contaier>
 );
