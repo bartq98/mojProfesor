@@ -1,5 +1,4 @@
 import ReactView from './ReactView';
+import ComponentsView from './ComponentsView';
 
-export {
-    ReactView,
-}
+export { ReactView, ComponentsView };

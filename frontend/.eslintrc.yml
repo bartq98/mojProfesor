@@ -5,6 +5,8 @@ env:
 extends:
     - 'plugin:react/recommended'
     - airbnb
+    - plugin:@typescript-eslint/recommended
+    - plugin:@typescript-eslint/eslint-recommended
     - plugin:testing-library/react
     - plugin:jest/recommended
     - prettier
@@ -61,14 +63,21 @@ rules:
     jest/valid-expect: error
     no-use-before-define: 'off'
     'no-undef': off
-    '@typescript-eslint/no-use-before-define':
-        - error
     indent:
         - error
         - 4
-    '@typescript-eslint/no-unused-vars':
-        - error
     import/prefer-default-export: 'off'
     no-param-reassign:
         - error
         - props: false
+    no-unused-vars: 'off'
+    '@typescript-eslint/no-unused-vars':
+        - warn
+    '@typescript-eslint/ban-types':
+        - error
+        - extendDefaults: true
+          types:
+              '{}': false
+    '@typescript-eslint/no-empty-function': off
+    '@typescript-eslint/triple-slash-reference': 'off'
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
