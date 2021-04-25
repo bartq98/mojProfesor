@@ -32,3 +32,5 @@ type TextAlign =
     | 'justify'
     | 'initial'
     | 'inherit;';
+
+type Wrap = 'wrap' | 'nowrap';

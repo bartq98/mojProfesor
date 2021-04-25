@@ -8,6 +8,7 @@ type Props = {
     justify?: JustifyContent;
     align?: AlignItems;
     className?: string;
+    wrap?: Wrap;
 };
 
 type StyleProps = {
@@ -15,6 +16,7 @@ type StyleProps = {
     width: string;
     justify: JustifyContent;
     align: AlignItems;
+    wrap: Wrap;
 };
 
 const StyledSpace = styled.div<StyleProps>`
@@ -23,6 +25,7 @@ const StyledSpace = styled.div<StyleProps>`
     width: ${props => props.width};
     justify-content: ${props => props.justify};
     align-items: ${props => props.align};
+    flex-wrap: ${props => props.wrap};
 `;
 
 const Space: React.FC<Props> = ({
@@ -32,6 +35,7 @@ const Space: React.FC<Props> = ({
     width = '100%',
     justify = 'initial',
     align = 'initial',
+    wrap = 'nowrap',
 }: Props) => (
     <StyledSpace
         className={`custom-space ${className}`}
@@ -39,6 +43,7 @@ const Space: React.FC<Props> = ({
         direction={direction}
         justify={justify}
         align={align}
+        wrap={wrap}
     >
         {children}
     </StyledSpace>
@@ -50,6 +55,7 @@ Space.defaultProps = {
     align: 'initial',
     justify: 'initial',
     className: '',
+    wrap: 'nowrap',
 };
 
 export default Space;

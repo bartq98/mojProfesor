@@ -5,8 +5,11 @@ import { DetailsSection, CommentsSection } from 'components/ProfesorDetails';
 const Container = styled.div`
     display: flex;
     flex-direction: row;
-    width: 100vw;
     height: 100vh;
+    flex-wrap: wrap;
+    > * {
+        flex: 1 1 160px;
+    }
 `;
 
 const ProfesorDetailsView: React.FC = () => (

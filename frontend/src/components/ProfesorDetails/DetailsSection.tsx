@@ -8,15 +8,19 @@ const { Title } = Text;
 const { MarkRingCard } = Mark;
 
 const Container = styled.div`
-    flex-basis: 50%;
     background-color: ${COLOURS.dark};
     display: flex;
     flex-direction: column;
     padding: 2% 3% 2% 3%;
     justify-content: space-between;
+    max-width: 100vw;
 
     .content {
         flex: 1;
+    }
+
+    .custom-space {
+        margin-top: 10%;
     }
 `;
 
@@ -30,9 +34,9 @@ const DetailsSection: React.FC = () => (
                 university: 'Politechnika Krakowska',
             }}
         />
-        <Space justify="center" className="content" direction="column">
+        <Space justify="flex-start" className="content" direction="column">
             <Title level={3}>Średnia ocen z poszczegolnych kategorii</Title>
-            <Space justify="space-between" direction="row">
+            <Space wrap="wrap" justify="space-between" direction="row">
                 {MOCK.mark.map(({ mark, title }) => (
                     <MarkRingCard mark={mark} title={title} />
                 ))}
