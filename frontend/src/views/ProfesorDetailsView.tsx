@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { DetailsSection, CommentsSection } from 'components/ProfesorDetails';
 
@@ -9,14 +9,11 @@ const Container = styled.div`
     height: 100vh;
 `;
 
-const ProfesorDetailsView = () => {
-    const [data, setData] = useState(null);
-    return (
-        <Container>
-            <DetailsSection />
-            <CommentsSection />
-        </Container>
-    );
-};
+const ProfesorDetailsView: React.FC = () => (
+    <Container>
+        <DetailsSection />
+        <CommentsSection />
+    </Container>
+);
 
 export default ProfesorDetailsView;
