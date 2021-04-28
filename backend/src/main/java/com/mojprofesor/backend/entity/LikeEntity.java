@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author Patryk Borchowiec
@@ -26,5 +24,7 @@ public class LikeEntity {
 
     private long opinionId;
 
-    private long userId;
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private UserEntity user;
 }

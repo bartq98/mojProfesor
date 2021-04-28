@@ -2,10 +2,13 @@ package com.mojprofesor.backend.service;
 
 import com.mojprofesor.backend.entity.LikeEntity;
 import com.mojprofesor.backend.entity.LikeType;
+import com.mojprofesor.backend.entity.UserEntity;
+import com.mojprofesor.backend.entity.UserRole;
 import com.mojprofesor.backend.exception.LikeAlreadyExistsException;
 import com.mojprofesor.backend.payload.AddLikeRequest;
 import com.mojprofesor.backend.payload.LikesAmountResponse;
 import com.mojprofesor.backend.repository.LikeRepository;
+import com.mojprofesor.backend.repository.UserRepository;
 import javassist.NotFoundException;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
@@ -22,15 +25,20 @@ public class LikeService {
     }
 
     public void addLike(@NonNull AddLikeRequest request) throws LikeAlreadyExistsException {
-        final long userId = 69; // TODO temporary value
+        UserEntity userEntity = UserEntity.builder()
+                .id(1)
+                .email("mail@mail.com")
+                .password("password")
+                .role(UserRole.ROLE_USER)
+                .build();
 
-        boolean alreadyExists = likeRepository.existsByOpinionIdAndUserId(request.getOpinion(), userId);
+        boolean alreadyExists = likeRepository.existsByOpinionIdAndUser(request.getOpinion(), userEntity);
         if (alreadyExists) {
             throw new LikeAlreadyExistsException("Like already exists");
         }
 
         LikeEntity likeEntity = LikeEntity.builder()
-                .userId(userId)
+                .user(userEntity)
                 .opinionId(request.getOpinion())
                 .type(request.getType())
                 .build();
