@@ -13,9 +13,12 @@
     <version>0.0.1</version>
     <name>backend</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
         <java.version>15</java.version>
+        <jwt.version>3.10.3</jwt.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.springfox</groupId>
@@ -53,6 +56,15 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>${jwt.version}</version>
         </dependency>
     </dependencies>
 
