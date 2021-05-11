@@ -58,7 +58,7 @@ public class LikeService {
         final int up = likeRepository.countAllByOpinionIdAndType(opinionId, LikeType.UP);
         final int down = likeRepository.countAllByOpinionIdAndType(opinionId, LikeType.DOWN);
 
-        // todo check if id exists
+        // todo check if opinion exists
 
         return new LikesAmountResponse(up, down);
     }
