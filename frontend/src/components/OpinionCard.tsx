@@ -12,8 +12,10 @@ const StyledCard = styled(Card)`
     width: 90%;
     background: rgba(255, 255, 255, 0.5);
     padding: 24px 24px 0 24px;
+    .opinion-marks-space {
+        overflow: auto;
+    }
     .custom-space {
-        overflow-x: scroll;
         p {
             padding: 1%;
         }
@@ -26,7 +28,7 @@ const StyledCard = styled(Card)`
 const OpinionCard: React.FC<Props> = ({ children }: Props) => (
     <StyledCard
         title={
-            <Space justify="space-between">
+            <Space justify="space-between" className="opinion-marks-space">
                 <p>Atrakcyjność zajęć - 5</p>
                 <p>Atrakcyjność zajęć - 5</p>
                 <p>Atrakcyjność zajęć - 5</p>
@@ -39,7 +41,7 @@ const OpinionCard: React.FC<Props> = ({ children }: Props) => (
         <Space direction="column">
             <div className="opinion-card-content">{children}</div>
             <div className="opinion-card-footer">
-                <Button type="text">More...</Button>
+                {/* <Button type="text">More...</Button> */}
             </div>
         </Space>
     </StyledCard>
