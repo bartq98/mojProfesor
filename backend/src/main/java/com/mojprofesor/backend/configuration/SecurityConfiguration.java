@@ -1,10 +1,10 @@
 package com.mojprofesor.backend.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mojprofesor.backend.configuration.jwt.JsonAuthenticationFilter;
-import com.mojprofesor.backend.configuration.jwt.JwtAuthorizationFilter;
 import com.mojprofesor.backend.configuration.jwt.AuthenticationFailureHandler;
 import com.mojprofesor.backend.configuration.jwt.AuthenticationSuccessHandler;
+import com.mojprofesor.backend.configuration.jwt.JsonAuthenticationFilter;
+import com.mojprofesor.backend.configuration.jwt.JwtAuthorizationFilter;
 import com.mojprofesor.backend.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,13 +19,10 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
-import javax.sql.DataSource;
-
 @Configuration
 @RequiredArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final DataSource dataSource;
     private final ObjectMapper objectMapper;
     private final AuthenticationFailureHandler failureHandler;
     private final AuthenticationSuccessHandler successHandler;
