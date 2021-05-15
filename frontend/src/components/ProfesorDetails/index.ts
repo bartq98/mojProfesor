@@ -1,4 +1,5 @@
 import DetailsSection from './DetailsSection';
 import CommentsSection from './CommentsSection';
+import DetailsTitle from './DetailsTitle';
 
-export { DetailsSection, CommentsSection };
+export { DetailsSection, CommentsSection, DetailsTitle };
