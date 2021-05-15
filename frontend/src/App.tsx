@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { ReactView, ComponentsView } from 'views';
+import { ReactView, ComponentsView, LandingView} from 'views';
 
 type Props = {};
 
@@ -17,6 +17,7 @@ export default class App extends Component<Props, State> {
         return (
             <Switch>
                 <Route path="/components" component={ComponentsView} />
+                <Route path="/landing" component={LandingView} />
                 <Route path="/" component={ReactView} />
             </Switch>
         );

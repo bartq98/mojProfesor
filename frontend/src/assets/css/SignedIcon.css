@@ -1,0 +1,62 @@
+.SignedIcon{
+    margin: 0 auto 0 auto;
+    text-align: center;
+}
+
+.SignedIcon p{
+    font: 1.3em Segoe UI;
+}
+
+.icon{
+    width: 40%;
+    height: 40%;
+    margin-bottom: 1vh;
+}
+
+@media(max-width: 1366px) {
+
+}
+
+@media(max-width: 1280px) {
+    .SignedIcon p{
+        font: 1.2em Segoe UI;
+    }
+
+    .icon{
+        width: 35%;
+        height: 35%;
+    }
+}
+
+@media(max-width: 1024px) {
+    .SignedIcon p{
+        font: 1.1em Segoe UI;
+    }
+
+    .icon{
+        width: 32%;
+        height: 32%;
+    }
+}
+
+@media(max-width: 768px) {
+    .SignedIcon p{
+        font: 0.8em Segoe UI;
+    }
+
+    .icon{
+        width: 30%;
+        height: 30%;
+    }
+}
+
+@media(max-width: 640px) {
+    .SignedIcon p{
+        font: 0.8em Segoe UI;
+    }
+
+    .icon{
+        width: 28%;
+        height: 28%;
+    }
+}
