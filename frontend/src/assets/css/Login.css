@@ -41,6 +41,7 @@ form input {
 }
 
 form input:focus, form input:active {
+    outline: none;
     border: none;
 }
 
