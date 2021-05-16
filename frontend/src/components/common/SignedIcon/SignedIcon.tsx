@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-circular-progressbar/dist/styles.css';
 
-require('../../../assets/css/SignedIcon.css');
+import  "assets/css/SignedIcon.css"
 
 type Props = {
     svg: string
