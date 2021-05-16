@@ -1,0 +1,52 @@
+.StarRating{
+    margin-bottom: 4vh;
+}
+
+.StarRating .stars{
+    display: flex;
+    flex-direction: row;
+}
+
+.StarRating p{
+    font: 1.3em Segoe UI;
+}
+
+.StarRating img{
+    width: 5vw;
+}
+
+@media(max-width: 1366px) {
+    .StarRating img{
+        width: 6vw;
+    }
+}
+
+@media(max-width: 1280px) {
+    .StarRating img{
+        width: 7vw;
+    }
+}
+
+@media(max-width: 1024px) {
+    .StarRating img{
+        width: 8vw;
+    }
+}
+
+@media(max-width: 768px) {
+    .StarRating img{
+        width: 9vw;
+    }
+}
+
+@media(max-width: 640px) {
+    .StarRating img{
+        width: 10vw;
+    }
+}
+
+@media(max-width: 412px) {
+    .StarRating img{
+        width: 11vw;
+    }
+}
