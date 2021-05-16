@@ -1,5 +1,13 @@
 import ReactView from './ReactView';
 import ComponentsView from './ComponentsView';
-import LandingView from './LandingView'
+import LoginView from './LoginView';
+import ProfesorDetailsView from './ProfesorDetailsView';
+import LandingView from './LandingView';
 
-export { ReactView, ComponentsView, LandingView };
+export {
+    ReactView,
+    ComponentsView,
+    ProfesorDetailsView,
+    LoginView,
+    LandingView,
+};
