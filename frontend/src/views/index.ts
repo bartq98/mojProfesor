@@ -5,6 +5,7 @@ import RegisterView from './RegisterView';
 import ProfesorDetailsView from './ProfesorDetailsView';
 import LandingView from './LandingView';
 import AddOpinionView from './AddOpinionView';
+import ProfessorsView from './ProfessorsView';
 
 export {
     ReactView,
@@ -13,5 +14,6 @@ export {
     LoginView,
     LandingView,
     RegisterView,
-    AddOpinionView
+    AddOpinionView,
+    ProfessorsView,
 };
