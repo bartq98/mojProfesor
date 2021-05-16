@@ -5,7 +5,8 @@ import {
     ComponentsView,
     ProfesorDetailsView,
     LoginView,
-    RegisterView,
+    LandingView,
+    RegisterView
 } from 'views';
 import { Layout } from 'components/common/Layout';
 
@@ -42,7 +43,7 @@ export default class App extends Component<Props, State> {
                         component={ProfesorDetailsView} // todo
                     />
 
-                    <Route path="/" component={ReactView} />
+                    <Route path="/" component={LandingView} />
                 </Switch>
             </Layout>
         );

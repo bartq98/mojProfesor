@@ -3,11 +3,13 @@ import ComponentsView from './ComponentsView';
 import LoginView from './LoginView';
 import RegisterView from './RegisterView';
 import ProfesorDetailsView from './ProfesorDetailsView';
+import LandingView from './LandingView';
 
 export {
     ReactView,
     ComponentsView,
     ProfesorDetailsView,
     LoginView,
+    LandingView,
     RegisterView,
 };
