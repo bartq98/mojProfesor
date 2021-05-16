@@ -1,11 +1,11 @@
 import React from 'react';
-import starRegular from '../../../assets/img/star-regular.svg';
-import starSolid from '../../../assets/img/star-solid.svg';
+import starRegular from 'assets/img/star-regular.svg';
+import starSolid from 'assets/img/star-solid.svg';
 
-require('../../../assets/css/Star.css');
+import 'assets/css/Star.css';
 
 type Props = {
-    filled: boolean
+    filled: boolean;
 };
 
 const Star: React.FC<Props> = ({ filled }: Props) => (

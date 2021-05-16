@@ -1,7 +1,7 @@
 import React from 'react';
-import Star from "../Star/Star";
+import Star from '../Star/Star';
 
-require('../../../assets/css/StarRating.css');
+import 'assets/css/StarRating.css';
 
 type Props = {
     text: string;
@@ -12,36 +12,42 @@ type State = {
 };
 
 class StarRating extends React.Component<Props, State> {
-
     constructor(props: Props | Readonly<Props>) {
         super(props);
         this.state = {
-            rate: 0
-        }
+            rate: 0,
+        };
     }
 
     checkStar = (starNumber: number) => {
-        this.setState({rate: starNumber});
-    }
+        this.setState({ rate: starNumber });
+    };
+
+    displayStars = () => {
+        const { scale } = this.props;
+        const { rate } = this.state;
+        const stars = [];
+
+        for (let i = 1; i <= scale; i += 1)
+            stars.push(
+                <button
+                    key={`submit-${i}`}
+                    type="submit"
+                    onClick={() => this.checkStar(i)}
+                >
+                    <Star filled={rate >= i} />
+                </button>
+            );
+        return stars;
+    };
 
     render() {
-        const {text, scale} = this.props;
-        const {rate} = this.state;
-
-        const stars = []
-        for(let i = 1; i <= scale; i+=1)
-            stars.push(
-                <button type="submit" onClick={() => this.checkStar(i)}>
-                    <Star filled={rate >= i}/>
-                </button>
-            )
+        const { text } = this.props;
 
         return (
             <div className="StarRating">
                 <p>{text}</p>
-                <div className="stars">
-                    {stars}
-                </div>
+                <div className="stars">{this.displayStars()}</div>
             </div>
         );
     }

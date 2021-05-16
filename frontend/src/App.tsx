@@ -31,6 +31,7 @@ export default class App extends Component<Props, State> {
                     <Route path="/login" component={LoginView} />
                     <Route path="/profesors" component={ComponentsView} />
                     <Route
+                        exact
                         path="/profesor/:id"
                         component={ProfesorDetailsView}
                     />
