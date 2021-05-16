@@ -9,15 +9,18 @@ import com.mojprofesor.backend.payload.UserResponse;
 import com.mojprofesor.backend.repository.UserRepository;
 import javassist.NotFoundException;
 import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
-    public final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) { this.userRepository = userRepository; }
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public void addUser(@NonNull AddUserRequest request) throws UserAlreadyExistsException {
         boolean alreadyExists = userRepository.existsByEmail(request.getEmail());
@@ -28,7 +31,7 @@ public class UserService {
 
         UserEntity userEntity = UserEntity.builder()
                 .email(request.getEmail())
-                .password(request.getPassword())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .role(request.getRole())
                 .build();
 
@@ -44,13 +47,11 @@ public class UserService {
     }
 
     public void updateUserPassword(@NonNull long id, @NonNull ChangeUserPasswordRequest request) throws NotFoundException, SamePasswordException {
-        Optional<UserEntity> user = userRepository.findById(id);
+        UserEntity user = userRepository.findById(id).orElseThrow(() ->  new NotFoundException(String.format("Not found user of id: %d", id)));
 
-        UserEntity userEntity = user.orElseThrow(() ->  new NotFoundException(String.format("Not found user of id: %d", id)));
-
-        if(!userEntity.getPassword().equals(request.getPassword())) {
-            userEntity.setPassword(request.getPassword());
-            userRepository.save(userEntity);
+        if(!passwordEncoder.matches(user.getPassword(), request.getPassword())) {
+            user.setPassword(passwordEncoder.encode(request.getPassword()));
+            userRepository.save(user);
         }
         else {
             throw new SamePasswordException("Password is the same as the previous");
