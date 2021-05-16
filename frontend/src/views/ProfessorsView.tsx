@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { DetailsSection, DetailsTitle } from 'components/ProfesorDetails';
+import { DetailsTitle } from 'components/ProfesorDetails';
 
 type Props = {};
 

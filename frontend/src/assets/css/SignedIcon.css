@@ -1,0 +1,58 @@
+.signed-icon {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-evenly;
+}
+
+.signed-icon p {
+    font: 1.3em Segoe UI;
+}
+
+.icon {
+    height: 40%;
+}
+
+@media (max-width: 1366px) {
+}
+
+@media (max-width: 1280px) {
+    .signed-icon p {
+        font: 1.2em Segoe UI;
+    }
+
+    .icon {
+        height: 35%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .signed-icon p {
+        font: 1.1em Segoe UI;
+    }
+
+    .icon {
+        height: 32%;
+    }
+}
+
+@media (max-width: 768px) {
+    .signed-icon p {
+        font: 0.8em Segoe UI;
+    }
+
+    .icon {
+        height: 30%;
+    }
+}
+
+@media (max-width: 640px) {
+    .signed-icon p {
+        font: 0.8em Segoe UI;
+    }
+
+    .icon {
+        height: 28%;
+    }
+}

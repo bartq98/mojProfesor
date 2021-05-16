@@ -1,9 +1,12 @@
 import { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import {
-    ReactView,
     ComponentsView,
     ProfesorDetailsView,
+    LoginView,
+    LandingView,
+    RegisterView,
+    AddOpinionView,
     ProfessorsView,
 } from 'views';
 import { Layout } from 'components/common/Layout';
@@ -25,10 +28,11 @@ export default class App extends Component<Props, State> {
                 <Switch>
                     {/* <Route path="/components" component={ComponentsView} /> */}
                     <Route path="/welcome" component={ComponentsView} />
-                    <Route path="/register" component={ComponentsView} />
-                    <Route path="/login" component={ComponentsView} />
+                    <Route path="/register" component={RegisterView} />
+                    <Route path="/login" component={LoginView} />
                     <Route path="/profesors" component={ProfessorsView} />
                     <Route
+                        exact
                         path="/profesor/:id"
                         component={ProfesorDetailsView}
                     />
@@ -38,10 +42,10 @@ export default class App extends Component<Props, State> {
                     />
                     <Route
                         path="/profesor/:id/add-opinion"
-                        component={ProfesorDetailsView} // todo
+                        component={AddOpinionView}
                     />
 
-                    <Route path="/" component={ReactView} />
+                    <Route path="/" component={LandingView} />
                 </Switch>
             </Layout>
         );

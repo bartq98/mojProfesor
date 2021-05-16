@@ -1,0 +1,68 @@
+.add-opinion-view {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-opinion-view .add-opinion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-opinion-view header {
+    text-align: center;
+    font: 3em Segoe UI;
+    color: #0fd300;
+    margin-bottom: 4vh;
+}
+
+.ant-card-body > .add-opinion-content > button {
+    border: none;
+    background: #0fd300 0% 0% no-repeat padding-box;
+    box-shadow: 0px 9px 9px #00000029;
+    border-radius: 41px;
+    color: #ffffff;
+    font: 1.2em Segoe UI;
+    width: 20vw;
+    padding: 1vh 0 1vh 0;
+    margin-bottom: 5vh;
+}
+
+@media (max-width: 1366px) {
+    .add-opinion-view > .add-opinion-content > button {
+        width: 20vw;
+    }
+}
+
+@media (max-width: 1280px) {
+    .add-opinion-view > .add-opinion-content > button {
+        width: 25vw;
+    }
+}
+
+@media (max-width: 1024px) {
+    .add-opinion-view > .add-opinion-content > button {
+        width: 30vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .add-opinion-view > .add-opinion-content > button {
+        width: 35vw;
+    }
+}
+
+@media (max-width: 640px) {
+    .add-opinion-view > .add-opinion-content > button {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 412px) {
+    .add-opinion-view > .add-opinion-content > button {
+        width: 45vw;
+    }
+}
