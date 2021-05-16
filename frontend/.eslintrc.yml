@@ -66,6 +66,7 @@ rules:
     indent:
         - error
         - 4
+        - SwitchCase: 1
     import/prefer-default-export: 'off'
     no-param-reassign:
         - error

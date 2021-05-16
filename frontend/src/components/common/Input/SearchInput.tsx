@@ -34,6 +34,9 @@ const StyledSearch = styled(Search)<StyledProps>`
         background-color: ${COLOURS.dark};
         border: none;
     }
+    .ant-input-group-addon {
+        background: none;
+    }
 `;
 
 const SearchInput: React.FC<Props> = ({
