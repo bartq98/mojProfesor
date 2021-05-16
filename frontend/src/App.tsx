@@ -40,7 +40,7 @@ export default class App extends Component<Props, State> {
                     />
                     <Route
                         path="/profesor/:id/add-opinion"
-                        component={AddOpinionView} // todo
+                        component={AddOpinionView}
                     />
 
                     <Route path="/" component={LandingView} />

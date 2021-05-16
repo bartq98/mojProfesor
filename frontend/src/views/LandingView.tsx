@@ -1,11 +1,11 @@
 import React from 'react';
-import search from '../assets/img/search-icon.svg';
-import star from '../assets/img/star-icon.svg';
-import msg from '../assets/img/msg-icon.svg';
-import share from '../assets/img/share-icon.svg';
-import SignedIcon from '../components/common/SignedIcon';
+import search from 'assets/img/search-icon.svg';
+import star from 'assets/img/star-icon.svg';
+import msg from 'assets/img/msg-icon.svg';
+import share from 'assets/img/share-icon.svg';
+import SignedIcon from 'components/common/SignedIcon';
 
-import '../assets/css/LandingView.css';
+import 'assets/css/LandingView.css';
 
 const LandingView: React.FC = () => (
     <div className="LandingView">
