@@ -8,8 +8,7 @@ import SignedIcon from 'components/common/SignedIcon';
 import 'assets/css/LandingView.css';
 
 const LandingView: React.FC = () => (
-    <div className="LandingView">
-        <div className="pseudo-navbar">Moj profesor</div>
+    <div className="landing-view">
         <div className="middle-content">
             <div className="search-container">
                 <p>Znajdź swojego profesora lub uczelnie</p>

@@ -9,7 +9,7 @@ type Props = {
 };
 
 const SignedIcon: React.FC<Props> = ({ svg, text }: Props) => (
-    <div className="SignedIcon">
+    <div className="signed-icon">
         <img src={svg} className="icon" alt="search-icon" />
         <p>{text}</p>
     </div>

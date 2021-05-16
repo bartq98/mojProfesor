@@ -1,62 +1,58 @@
-.SignedIcon{
-    margin: 0 auto 0 auto;
+.signed-icon {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-evenly;
 }
 
-.SignedIcon p{
+.signed-icon p {
     font: 1.3em Segoe UI;
 }
 
-.icon{
-    width: 40%;
+.icon {
     height: 40%;
-    margin-bottom: 1vh;
 }
 
-@media(max-width: 1366px) {
-
+@media (max-width: 1366px) {
 }
 
-@media(max-width: 1280px) {
-    .SignedIcon p{
+@media (max-width: 1280px) {
+    .signed-icon p {
         font: 1.2em Segoe UI;
     }
 
-    .icon{
-        width: 35%;
+    .icon {
         height: 35%;
     }
 }
 
-@media(max-width: 1024px) {
-    .SignedIcon p{
+@media (max-width: 1024px) {
+    .signed-icon p {
         font: 1.1em Segoe UI;
     }
 
-    .icon{
-        width: 32%;
+    .icon {
         height: 32%;
     }
 }
 
-@media(max-width: 768px) {
-    .SignedIcon p{
+@media (max-width: 768px) {
+    .signed-icon p {
         font: 0.8em Segoe UI;
     }
 
-    .icon{
-        width: 30%;
+    .icon {
         height: 30%;
     }
 }
 
-@media(max-width: 640px) {
-    .SignedIcon p{
+@media (max-width: 640px) {
+    .signed-icon p {
         font: 0.8em Segoe UI;
     }
 
-    .icon{
-        width: 28%;
+    .icon {
         height: 28%;
     }
 }

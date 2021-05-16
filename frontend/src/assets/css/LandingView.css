@@ -1,18 +1,17 @@
-.pseudo-navbar{
-    font: 2em Segoe UI;
-    background: white;
-    border: solid black 1px;
-    padding-bottom: 5vh;
+.landing-view {
+    flex: 1;
+    height: 100%;
+    flex-wrap: wrap;
 }
 
-.LandingView .middle-content{
-    background-image: url("../img/landing-main-pic.png");
+.landing-view .middle-content {
+    background-image: url('../img/landing-main-pic.png');
     height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-.LandingView .search-container{
+.landing-view .search-container {
     background: black;
     background: rgba(0, 0, 0, 0.3);
 
@@ -26,12 +25,12 @@
     padding: 10vh 0 10vh 0;
 }
 
-.LandingView .search-container p{
+.landing-view .search-container p {
     font: 2em Segoe UI;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
-.LandingView .search-container input{
+.landing-view .search-container input {
     border: none;
     outline: none;
     box-shadow: none;
@@ -47,47 +46,49 @@
     font: 1.2em Segoe UI;
 }
 
-.LandingView .search-container .professor{
+.landing-view .search-container .professor {
     background-size: 7%;
-    background-image: url("../img/person-icon.svg")
+    background-image: url('../img/person-icon.svg');
 }
 
-.LandingView .search-container .school{
+.landing-view .search-container .school {
     background-size: 9%;
-    background-image: url("../img/cap-icon.svg");
+    background-image: url('../img/cap-icon.svg');
 }
 
-.LandingView .search-container button{
+.landing-view .search-container button {
     border: none;
-    background: #0FD300 0% 0% no-repeat padding-box;
+    background: #0fd300 0% 0% no-repeat padding-box;
     box-shadow: 0px 9px 9px #00000029;
     border-radius: 41px;
-    color: #FFFFFF;
+    color: #ffffff;
     font: 1.2em Segoe UI;
     width: 20vw;
     padding: 1vh 0 1vh 0;
 }
 
-.LandingView .bottom-menu-container{
+.landing-view .bottom-menu-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    margin-top: 6vh;
+    align-items: center;
+    width: 100%;
+    height: calc(40vh - 64px);
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-
-@media(max-width: 1366px) {
-    .LandingView .middle-content{
+@media (max-width: 1366px) {
+    .landing-view .middle-content {
         height: 50vh;
         background-position: center;
     }
 
-    .LandingView .search-container p{
+    .landing-view .search-container p {
         font: 1.8em Segoe UI;
     }
 
-    .LandingView .search-container input{
+    .landing-view .search-container input {
         box-shadow: 0px 7px 7px #00000029;
         border-radius: 21px;
 
@@ -96,115 +97,115 @@
         font: 1em Segoe UI;
     }
 
-    .LandingView .search-container button{
+    .landing-view .search-container button {
         box-shadow: 0px 6px 6px #00000029;
         border-radius: 21px;
         font: 1em Segoe UI;
     }
 
-    .LandingView .bottom-menu-container{
+    .landing-view .bottom-menu-container {
         margin-top: 5vh;
     }
 }
 
-@media(max-width: 1280px) {
-    .LandingView .search-container input{
+@media (max-width: 1280px) {
+    .landing-view .search-container input {
         min-width: 25vw;
         padding: 1vh 1vw 1vh 3.5vw;
         background-position: 1.2vw center;
     }
 
-    .LandingView .search-container button{
+    .landing-view .search-container button {
         min-width: 25vw;
     }
 
-    .LandingView .bottom-menu-container{
+    .landing-view .bottom-menu-container {
         margin-top: 4vh;
     }
 }
 
-@media(max-width: 1024px) {
-    .LandingView .middle-content{
+@media (max-width: 1024px) {
+    .landing-view .middle-content {
         height: 45vh;
     }
 
-    .LandingView .search-container p{
+    .landing-view .search-container p {
         font: 1.6em Segoe UI;
     }
 
-    .LandingView .search-container input{
+    .landing-view .search-container input {
         background-position: 1.5vw center;
         padding: 1vh 1vw 1vh 5vw;
         min-width: 30vw;
     }
 
-    .LandingView .search-container button{
+    .landing-view .search-container button {
         min-width: 30vw;
     }
 
-    .LandingView .bottom-menu-container{
+    .landing-view .bottom-menu-container {
         margin-top: 3vh;
     }
 }
 
-@media(max-width: 768px) {
-    .LandingView .middle-content{
+@media (max-width: 768px) {
+    .landing-view .middle-content {
         height: 40vh;
     }
 
-    .LandingView .search-container p{
+    .landing-view .search-container p {
         font: 1.4em Segoe UI;
     }
 
-    .LandingView .search-container input{
+    .landing-view .search-container input {
         min-width: 35vw;
         background-position: 2vw center;
         padding: 1vh 1vw 1vh 6vw;
         font: 0.8em Segoe UI;
     }
 
-    .LandingView .search-container button{
+    .landing-view .search-container button {
         min-width: 35vw;
         font: 0.8em Segoe UI;
     }
 
-    .LandingView .bottom-menu-container{
+    .landing-view .bottom-menu-container {
         margin-top: 2vh;
     }
 }
 
-@media(max-width: 640px) {
-    .LandingView .middle-content{
+@media (max-width: 640px) {
+    .landing-view .middle-content {
         height: 35vh;
     }
 
-    .LandingView .search-container input{
+    .landing-view .search-container input {
         background-position: 3vw center;
         padding: 1vh 1vw 1vh 8vw;
         min-width: 45vw;
         font: 0.8em Segoe UI;
     }
 
-    .LandingView .search-container button{
+    .landing-view .search-container button {
         min-width: 45vw;
         font: 0.8em Segoe UI;
     }
 }
 
-@media(max-width: 412px) {
-    .LandingView .middle-content{
+@media (max-width: 412px) {
+    .landing-view .middle-content {
         height: 30vh;
     }
 
-    .LandingView .search-container p{
+    .landing-view .search-container p {
         font: 1.2em Segoe UI;
     }
 
-    .LandingView .search-container input{
+    .landing-view .search-container input {
         min-width: 50vw;
     }
 
-    .LandingView .search-container button{
+    .landing-view .search-container button {
         min-width: 50vw;
     }
 }

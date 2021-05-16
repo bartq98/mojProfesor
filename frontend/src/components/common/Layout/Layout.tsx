@@ -9,7 +9,9 @@ type Props = {
 
 const { Content, Footer } = ALayout;
 
-const StyledLayout = styled(ALayout)``;
+const StyledLayout = styled(ALayout)`
+    display: flex;
+`;
 
 const Layout: React.FC<Props> = ({ children }: Props) => (
     <StyledLayout>
