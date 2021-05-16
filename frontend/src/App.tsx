@@ -5,6 +5,7 @@ import {
     ComponentsView,
     ProfesorDetailsView,
     LoginView,
+    RegisterView,
 } from 'views';
 import { Layout } from 'components/common/Layout';
 
@@ -25,7 +26,7 @@ export default class App extends Component<Props, State> {
                 <Switch>
                     {/* <Route path="/components" component={ComponentsView} /> */}
                     <Route path="/welcome" component={ComponentsView} />
-                    <Route path="/register" component={ComponentsView} />
+                    <Route path="/register" component={RegisterView} />
                     <Route path="/login" component={LoginView} />
                     <Route path="/profesors" component={ComponentsView} />
                     <Route
