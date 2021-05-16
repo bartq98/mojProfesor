@@ -1,5 +1,6 @@
 import ReactView from './ReactView';
 import ComponentsView from './ComponentsView';
 import LoginView from './LoginView';
+import ProfesorDetailsView from './ProfesorDetailsView';
 
-export { ReactView, ComponentsView, LoginView };
+export { ReactView, ComponentsView, ProfesorDetailsView, LoginView };
