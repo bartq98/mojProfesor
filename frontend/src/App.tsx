@@ -1,6 +1,11 @@
 import { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { ReactView, ComponentsView, ProfesorDetailsView } from 'views';
+import {
+    ReactView,
+    ComponentsView,
+    ProfesorDetailsView,
+    LoginView,
+} from 'views';
 import { Layout } from 'components/common/Layout';
 
 type Props = {};
@@ -21,7 +26,7 @@ export default class App extends Component<Props, State> {
                     {/* <Route path="/components" component={ComponentsView} /> */}
                     <Route path="/welcome" component={ComponentsView} />
                     <Route path="/register" component={ComponentsView} />
-                    <Route path="/login" component={ComponentsView} />
+                    <Route path="/login" component={LoginView} />
                     <Route path="/profesors" component={ComponentsView} />
                     <Route
                         path="/profesor/:id"
