@@ -50,6 +50,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/opinions").hasAnyRole(ROLE_USER.getRoleName(), ROLE_ADMIN.getRoleName())
                 .antMatchers(HttpMethod.GET, "/like/*/amount").permitAll()
                 .antMatchers(HttpMethod.POST, "/like").hasAnyRole(ROLE_USER.getRoleName(), ROLE_ADMIN.getRoleName())
+                .antMatchers(HttpMethod.GET, "/professor", "/professor/*", "/professor/*/*").permitAll()
+                .antMatchers(HttpMethod.POST, "/professor").hasAnyRole(ROLE_USER.getRoleName(), ROLE_ADMIN.getRoleName())
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)

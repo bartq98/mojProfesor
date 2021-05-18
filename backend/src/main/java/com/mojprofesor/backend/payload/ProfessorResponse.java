@@ -10,11 +10,14 @@ public class ProfessorResponse {
     private final String firstName;
     private final String lastName;
     private final String academicTitle;
+    private final Long createdBy;
 
     public static ProfessorResponse of(ProfessorEntity entity) {
         return new ProfessorResponse(entity.getId(),
                 entity.getFirstName(),
                 entity.getLastName(),
-                entity.getAcademicTitle());
+                entity.getAcademicTitle(),
+                entity.getCreatedBy().getId()
+        );
     }
 }
