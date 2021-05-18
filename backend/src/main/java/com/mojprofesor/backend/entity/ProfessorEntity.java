@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Data
 @NoArgsConstructor
@@ -23,4 +24,7 @@ public class ProfessorEntity {
     private String firstName;
     private String lastName;
     private String academicTitle;
+
+    @ManyToOne
+    private UserEntity createdBy;
 }
