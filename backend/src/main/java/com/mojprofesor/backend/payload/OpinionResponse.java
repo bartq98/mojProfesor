@@ -1,7 +1,6 @@
 package com.mojprofesor.backend.payload;
 
 import com.mojprofesor.backend.entity.OpinionEntity;
-import com.mojprofesor.backend.entity.UserEntity;
 import lombok.Data;
 
 @Data

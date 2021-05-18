@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 @Data
 public class AddLikeRequest {
     @NotNull
-    private Integer opinion;
+    private Long opinion;
 
     @NotNull
     private LikeType type;

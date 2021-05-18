@@ -22,7 +22,8 @@ public class LikeEntity {
 
     private LikeType type;
 
-    private long opinionId;
+    @ManyToOne
+    private OpinionEntity opinion;
 
     @ManyToOne
     @JoinColumn(name="user_id")

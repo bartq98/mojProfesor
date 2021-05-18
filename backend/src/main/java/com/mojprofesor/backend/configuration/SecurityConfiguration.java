@@ -5,7 +5,6 @@ import com.mojprofesor.backend.configuration.jwt.AuthenticationFailureHandler;
 import com.mojprofesor.backend.configuration.jwt.AuthenticationSuccessHandler;
 import com.mojprofesor.backend.configuration.jwt.JsonAuthenticationFilter;
 import com.mojprofesor.backend.configuration.jwt.JwtAuthorizationFilter;
-import com.mojprofesor.backend.entity.UserRole;
 import com.mojprofesor.backend.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +20,8 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
-import static com.mojprofesor.backend.entity.UserRole.*;
+import static com.mojprofesor.backend.entity.UserRole.ROLE_ADMIN;
+import static com.mojprofesor.backend.entity.UserRole.ROLE_USER;
 
 @Configuration
 @RequiredArgsConstructor
@@ -48,6 +48,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/user").permitAll()
                 .antMatchers(HttpMethod.GET, "/opinions/*", "/opinions/professor/*").permitAll()
                 .antMatchers(HttpMethod.POST, "/opinions").hasAnyRole(ROLE_USER.getRoleName(), ROLE_ADMIN.getRoleName())
+                .antMatchers(HttpMethod.GET, "/like/*/amount").permitAll()
+                .antMatchers(HttpMethod.POST, "/like").hasAnyRole(ROLE_USER.getRoleName(), ROLE_ADMIN.getRoleName())
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
