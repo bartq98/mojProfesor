@@ -1,5 +1,4 @@
 {
-  "homepage": "https://github.com/bartq98/mojProfesor",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -71,7 +70,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^3.10.2",
     "gh-pages": "^3.1.0",
-    "prettier": "2.2.1",
+    "prettier": "2.2.1"
   },
-  "proxy": ""
+  "proxy": "http://localhost:7000"
 }

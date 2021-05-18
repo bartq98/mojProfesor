@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import login from 'assets/img/login.png';
 import logo from 'assets/img/logo.png';
 
@@ -53,9 +54,11 @@ export const Login: React.VFC = () => {
                         Zaloguj się
                     </button>
                     <p>Nie masz jeszcze konta?</p>
-                    <button type="button" className="btn-txt btn">
-                        Zarejestruj się
-                    </button>
+                    <Link to="/register">
+                        <button type="button" className="btn-txt btn">
+                            Zarejestruj się
+                        </button>
+                    </Link>
                 </form>
                 <div className="image">
                     <img src={login} alt="" />
