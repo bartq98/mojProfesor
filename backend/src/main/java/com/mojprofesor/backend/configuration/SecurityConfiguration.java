@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
@@ -45,7 +45,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/swagger-resources/**", "/v2/api-docs", "/swagger-ui/**", "/webjars/**").permitAll()
-                .antMatchers("/", "/user").permitAll()
+                .antMatchers(HttpMethod.POST, "/user").permitAll()
+                .antMatchers(HttpMethod.GET, "/", "/user", "/user/*").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/user/*").hasAnyRole(ROLE_USER.getRoleName(), ROLE_ADMIN.getRoleName())
                 .antMatchers(HttpMethod.GET, "/opinions/*", "/opinions/professor/*").permitAll()
                 .antMatchers(HttpMethod.POST, "/opinions").hasAnyRole(ROLE_USER.getRoleName(), ROLE_ADMIN.getRoleName())
                 .antMatchers(HttpMethod.GET, "/like/*/amount").permitAll()
@@ -73,7 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 
 }
