@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Service
@@ -38,7 +39,7 @@ public class UserService {
         userRepository.save(userEntity);
     }
 
-    public UserResponse getUser(@NonNull long id) throws NotFoundException {
+    public UserResponse getUser(@NonNull Long id) throws NotFoundException {
         Optional<UserEntity> user = userRepository.findById(id);
 
         UserEntity userEntity = user.orElseThrow(() ->  new NotFoundException(String.format("Not found user of id: %d", id)));
@@ -46,8 +47,9 @@ public class UserService {
         return UserResponse.of(userEntity);
     }
 
-    public void updateUserPassword(@NonNull long id, @NonNull ChangeUserPasswordRequest request) throws NotFoundException, SamePasswordException {
-        UserEntity user = userRepository.findById(id).orElseThrow(() ->  new NotFoundException(String.format("Not found user of id: %d", id)));
+    public void updateUserPassword(@NonNull Long id, @NonNull ChangeUserPasswordRequest request) throws NotFoundException, SamePasswordException {
+        UserEntity user = userRepository
+                .findById(id).orElseThrow(() ->  new NotFoundException(String.format("Not found user of id: %d", id)));
 
         if(!passwordEncoder.matches(user.getPassword(), request.getPassword())) {
             user.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -58,12 +60,21 @@ public class UserService {
         }
     }
 
-    public void deleteUser(@NonNull long id) throws NotFoundException {
+    public void deleteUser(@NonNull Long id) throws NotFoundException {
         if(!userRepository.existsById(id)) {
             throw new NotFoundException(String.format("Not found user of id: %d", id));
         }
 
         userRepository.deleteById(id);
+    }
+
+    public UserResponse getUserByPrincipal(Principal principal) throws NotFoundException {
+        UserEntity user = userRepository
+                .findByEmail(principal.getName())
+                .orElseThrow(() ->
+                        new NotFoundException(String.format("Not found user of email: %s", principal.getName())));
+
+        return UserResponse.of(user);
     }
 }
 
