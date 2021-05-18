@@ -1,6 +1,5 @@
 package com.mojprofesor.backend.controller;
 
-import com.mojprofesor.backend.entity.UserDetailsImpl;
 import com.mojprofesor.backend.payload.AddOpinionRequest;
 import com.mojprofesor.backend.payload.OpinionResponse;
 import com.mojprofesor.backend.service.OpinionService;

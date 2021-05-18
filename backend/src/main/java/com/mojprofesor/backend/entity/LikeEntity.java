@@ -5,9 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author Patryk Borchowiec
@@ -16,13 +14,18 @@ import javax.persistence.Id;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "stars")
-public class StarEntity {
+@Entity(name = "likes")
+public class LikeEntity {
     @Id
     @GeneratedValue
     private long id;
 
-    private long opinionId;
+    private LikeType type;
 
-    private long userId;
+    @ManyToOne
+    private OpinionEntity opinion;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private UserEntity user;
 }
