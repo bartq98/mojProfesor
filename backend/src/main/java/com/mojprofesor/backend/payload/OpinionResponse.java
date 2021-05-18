@@ -16,8 +16,8 @@ public class OpinionResponse {
     public static OpinionResponse of(OpinionEntity opinionEntity) {
         return new OpinionResponse(
                 opinionEntity.getId(),
-                opinionEntity.getProfessorID(),
-                opinionEntity.getUserID(),
+                opinionEntity.getProfessor().getId(),
+                opinionEntity.getUser().getId(),
                 opinionEntity.getContent(),
                 opinionEntity.getDetails()
         );
