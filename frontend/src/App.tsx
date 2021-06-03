@@ -7,6 +7,7 @@ import {
     LandingView,
     RegisterView,
     AddOpinionView,
+    ProfessorsView,
 } from 'views';
 import { Layout } from 'components/common/Layout';
 
@@ -29,7 +30,7 @@ export default class App extends Component<Props, State> {
                     <Route path="/welcome" component={ComponentsView} />
                     <Route path="/register" component={RegisterView} />
                     <Route path="/login" component={LoginView} />
-                    <Route path="/profesors" component={ComponentsView} />
+                    <Route path="/profesors" component={ProfessorsView} />
                     <Route
                         exact
                         path="/profesor/:id"

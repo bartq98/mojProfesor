@@ -8,21 +8,25 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-/**
- * @author Patryk Borchowiec
- */
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "stars")
-public class StarEntity {
+@Entity(name = "opinion")
+public class OpinionEntity {
+
     @Id
     @GeneratedValue
     private long id;
 
-    private long opinionId;
+    @ManyToOne
+    private ProfessorEntity professor;
 
-    private long userId;
+    @ManyToOne
+    private UserEntity user;
+    private String content;
+    private String details;
+
 }
