@@ -1,0 +1,213 @@
+.pseudo-navbar{
+    font: 2em Segoe UI;
+    background: white;
+    border: solid black 1px;
+    padding-bottom: 5vh;
+}
+
+.AddProfessorView .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.AddProfessorView header{
+    text-align: center;
+    font: 3em Segoe UI;
+    color: #0FD300;
+    margin-bottom: 4vh;
+}
+
+.AddProfessorView .content input{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    box-shadow: 0px 9px 9px #00000029;
+    border-radius: 41px;
+
+    background-position: 1vw center;
+    background-repeat: no-repeat;
+
+    width: 25vw;
+    padding: 1vh 2vw 1vh 2vw;
+    margin: 0 0 3vh 0;
+    font: 1.2em Segoe UI;
+}
+
+.AddProfessorView .content .rowbox{
+    width: 25vw;
+    display: flex;
+}
+
+.AddProfessorView .content .rowbox input{
+    width: 12vw;
+}
+
+.AddProfessorView .content .rowbox input[class="surname"]{
+    margin-left: auto;
+}
+
+.AddProfessorView > .content > button{
+    border: none;
+    background: #0FD300 0% 0% no-repeat padding-box;
+    box-shadow: 0px 9px 9px #00000029;
+    border-radius: 41px;
+    color: #FFFFFF;
+    font: 1.2em Segoe UI;
+    width: 25vw;
+    padding: 1vh 0 1vh 0;
+    margin-bottom: 5vh;
+}
+
+
+@media(max-width: 1366px) {
+    .AddProfessorView .content input{
+        width: 30vw;
+        box-shadow: 0px 8px 8px #00000029;
+        border-radius: 36px;
+    }
+
+    .AddProfessorView .content .rowbox{
+        width: 30vw;
+        font: 1.1em Segoe UI;
+    }
+
+    .AddProfessorView .content .rowbox input{
+        width: 14vw;
+    }
+
+    .AddProfessorView > .content > button{
+        width: 30vw;
+        box-shadow: 0px 8px 8px #00000029;
+        border-radius: 36px;
+    }
+}
+
+@media(max-width: 1280px) {
+    .AddProfessorView header{
+        font: 2.8em Segoe UI;
+    }
+
+    .AddProfessorView .content input{
+        width: 35vw;
+        font: 1em Segoe UI;
+        box-shadow: 0px 7px 7px #00000029;
+        border-radius: 31px;
+    }
+
+    .AddProfessorView .content .rowbox{
+        width: 35vw;
+    }
+
+    .AddProfessorView .content .rowbox input{
+        width: 16vw;
+    }
+
+    .AddProfessorView > .content > button{
+        width: 35vw;
+        box-shadow: 0px 7px 7px #00000029;
+        border-radius: 31px;
+    }
+}
+
+@media(max-width: 1024px) {
+    .AddProfessorView header{
+        font: 2.6em Segoe UI;
+    }
+
+    .AddProfessorView .content input{
+        width: 40vw;
+        font: 0.9em Segoe UI;
+        padding: 1vh 3vw 1vh 3vw;
+        box-shadow: 0px 6px 6px #00000029;
+        border-radius: 26px;
+    }
+
+    .AddProfessorView .content .rowbox{
+        width: 40vw;
+    }
+
+    .AddProfessorView .content .rowbox input{
+        width: 18vw;
+    }
+
+    .AddProfessorView > .content > button{
+        width: 40vw;
+        box-shadow: 0px 6px 6px #00000029;
+        border-radius: 26px;
+    }
+}
+
+@media(max-width: 768px) {
+    .AddProfessorView header{
+        font: 2.4em Segoe UI;
+    }
+
+    .AddProfessorView .content input{
+        width: 45vw;
+        box-shadow: 0px 5px 5px #00000029;
+        border-radius: 21px;
+    }
+
+    .AddProfessorView .content .rowbox{
+        width: 45vw;
+    }
+
+    .AddProfessorView .content .rowbox input{
+        width: 21vw;
+    }
+
+    .AddProfessorView > .content > button{
+        width: 45vw;
+        box-shadow: 0px 5px 5px #00000029;
+        border-radius: 21px;
+    }
+}
+
+@media(max-width: 640px) {
+    .AddProfessorView header{
+        font: 2.2em Segoe UI;
+    }
+
+    .AddProfessorView .content input{
+        width: 50vw;
+        font: 0.8em Segoe UI;
+        padding: 1vh 4vw 1vh 4vw;
+    }
+
+    .AddProfessorView .content .rowbox{
+        width: 50vw;
+    }
+
+    .AddProfessorView .content .rowbox input{
+        width: 23vw;
+    }
+
+    .AddProfessorView > .content > button{
+        width: 50vw;
+    }
+}
+
+@media(max-width: 412px) {
+    .AddProfessorView header{
+        font: 2em Segoe UI;
+    }
+
+    .AddProfessorView .content input{
+        width: 55vw;
+    }
+
+    .AddProfessorView .content .rowbox{
+        width: 55vw;
+    }
+
+    .AddProfessorView .content .rowbox input{
+        width: 26vw;
+    }
+
+    .AddProfessorView > .content > button{
+        width: 55vw;
+    }
+}

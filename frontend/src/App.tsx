@@ -13,6 +13,7 @@ import {
     RegisterView,
     AddOpinionView,
     ProfessorsView,
+    AddProfessorView,
 } from 'views';
 import { Layout } from 'components/common/Layout';
 import * as dal from 'dal';
@@ -61,6 +62,7 @@ class App extends Component<Props, State> {
                     />
 
                     <Route path="/" component={LandingView} />
+                    <Route path="/add-professor" component={AddProfessorView} />
                 </Switch>
             </Layout>
         );
