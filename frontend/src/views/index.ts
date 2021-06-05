@@ -6,6 +6,7 @@ import ProfesorDetailsView from './ProfesorDetailsView';
 import LandingView from './LandingView';
 import AddOpinionView from './AddOpinionView';
 import ProfessorsView from './ProfessorsView';
+import AddProfessorView from './AddProfessorView';
 
 export {
     ReactView,
@@ -16,4 +17,5 @@ export {
     RegisterView,
     AddOpinionView,
     ProfessorsView,
+    AddProfessorView,
 };
