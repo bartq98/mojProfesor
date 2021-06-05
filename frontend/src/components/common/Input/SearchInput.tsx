@@ -10,7 +10,7 @@ type Props = {
     customWidth?: string;
     customHeight?: string;
     customFontSize?: string;
-    onSearch: (value: string) => void;
+    onSearch: (value?: string) => void;
     onChange?: (e: string) => void;
 };
 
@@ -34,6 +34,9 @@ const StyledSearch = styled(Search)<StyledProps>`
         background-color: ${COLOURS.dark};
         border: none;
     }
+    .ant-input-group-addon {
+        background: none;
+    }
 `;
 
 const SearchInput: React.FC<Props> = ({
@@ -50,7 +53,7 @@ const SearchInput: React.FC<Props> = ({
         fontsize={customFontSize}
         height={customHeight}
         placeholder={placeholder || ''}
-        onSearch={onSearch}
+        onSearch={() => onSearch()}
         onChange={e => onChange && onChange(e.target.value)}
         enterButton
     />

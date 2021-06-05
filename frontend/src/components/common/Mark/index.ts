@@ -1,5 +1,7 @@
 import MarkRing from './MarkRing';
+import MarkRingCard from './MarkRingCard';
+import MarkNumber from './MarkNumber';
 
-export { MarkRing };
+export { MarkRing, MarkNumber, MarkRingCard };
 
 export default MarkRing;
