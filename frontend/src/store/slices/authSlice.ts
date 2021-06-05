@@ -15,13 +15,13 @@ export const authSlice = createSlice({
             state.user = payload;
             state.isAuth = true;
         },
-        setLogOut: (state) => {
+        setLogOut: state => {
             state.isAuth = false;
             state.user = DEFAULT_TYPES.DEFAULT_USER;
         },
     },
 });
 
-export const authSelector = (state: RootState) => state[$CombinedState];
+export const authSelector = (state: RootState) => state.auth;
 
 export default authSlice.reducer;

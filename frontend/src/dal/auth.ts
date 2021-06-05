@@ -1,12 +1,5 @@
 import { api } from './api';
 
-export const register = (user: IRegisterModel) =>
-    api.post('/user', {
-        email: user.email,
-        password: user.password,
-        role: 'ROLE_USER',
-    });
+export const getMe = () => api.get(`/auth/me`);
 
-export const login = () => {};
-export const deleteAccount = () => {};
-export const changePassword = () => {};
+export const login = (request: ILogin) => api.post('/login', { ...request });

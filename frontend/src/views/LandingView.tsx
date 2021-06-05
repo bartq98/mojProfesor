@@ -12,7 +12,6 @@ const LandingView: React.FC = () => {
     const [test, setTest] = React.useState(0);
     React.useEffect(() => {
         api.get('/professor?page=0&size=20');
-        console.log('xd');
     }, [test]);
 
     return (

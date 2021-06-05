@@ -26,10 +26,13 @@ export const Register = () => {
     ) => {
         e.preventDefault();
         if (state.password === state.confirmPassword) {
-            dal.auth
-                .register(state)
-                .then(() => history.push('/'))
-                .catch(() => {});
+            dal.user
+                .addUser({
+                    email: state.email,
+                    password: state.password,
+                    role: 'ROLE_USER',
+                })
+                .then(() => history.push('/'));
         } else {
             console.log('err');
         }

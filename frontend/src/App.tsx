@@ -1,5 +1,10 @@
 import { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {
+    Switch,
+    Route,
+    RouteComponentProps,
+    withRouter,
+} from 'react-router-dom';
 import {
     ComponentsView,
     ProfesorDetailsView,
@@ -10,16 +15,26 @@ import {
     ProfessorsView,
 } from 'views';
 import { Layout } from 'components/common/Layout';
+import * as dal from 'dal';
 
-type Props = {};
+type Props = {} & RouteComponentProps;
 
 type State = {};
 
-export default class App extends Component<Props, State> {
+class App extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
         this.state = {};
+    }
+
+    async scomponentDidUpdate(prevProps: Props) {
+        const {
+            location: { pathname },
+        } = this.props;
+        if (prevProps.location.pathname !== pathname) {
+            const { data } = await dal.auth.getMe();
+        }
     }
 
     render() {
@@ -30,7 +45,7 @@ export default class App extends Component<Props, State> {
                     <Route path="/welcome" component={ComponentsView} />
                     <Route path="/register" component={RegisterView} />
                     <Route path="/login" component={LoginView} />
-                    <Route path="/profesors" component={ProfessorsView} />
+                    <Route path="/professors" component={ProfessorsView} />
                     <Route
                         exact
                         path="/profesor/:id"
@@ -51,3 +66,5 @@ export default class App extends Component<Props, State> {
         );
     }
 }
+
+export default withRouter(App);
