@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useLocationQuery } from 'hooks';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { ProfessorItem } from 'components/ProfessorsView';
+import {ProfessorItem} from 'components/ProfessorsView';
 import * as dal from 'dal';
-import { useLocation, useRouteMatch } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 
 type Props = {};
 

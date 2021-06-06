@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { Button, Layout as ALayout, Menu } from 'antd';
+import React, {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
+import {Button, Layout as ALayout, Menu} from 'antd';
 import styled from 'styled-components';
 import Logo from 'assets/img/logo.svg';
-import { COLOURS } from 'utils/constants';
-import { authSlice } from 'store/slices';
-import { useDispatch, useSelector } from 'react-redux';
+import {COLOURS} from 'utils/constants';
+import {authSlice} from 'store/slices';
+import {useDispatch, useSelector} from 'react-redux';
 import * as dal from 'dal';
-import { SearchInput } from '../Input';
+import {SearchInput} from '../Input';
 
 const { Header: AHeader } = ALayout;
 
@@ -75,7 +75,6 @@ const Header: React.VFC = () => {
                         <Menu.Item key="2">
                             <Button
                                 onClick={() => {
-                                    // TODO: BOROBORO
                                     dal.auth.logout();
                                     dispatch(
                                         authSlice.authSlice.actions.setLogOut

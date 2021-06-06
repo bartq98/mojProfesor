@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import search from 'assets/img/search-icon.svg';
 import star from 'assets/img/star-icon.svg';
 import msg from 'assets/img/msg-icon.svg';

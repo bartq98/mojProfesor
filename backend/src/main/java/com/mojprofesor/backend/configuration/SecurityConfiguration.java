@@ -20,6 +20,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 
+import javax.servlet.http.HttpServletResponse;
+
 import static com.mojprofesor.backend.entity.UserRole.ROLE_ADMIN;
 import static com.mojprofesor.backend.entity.UserRole.ROLE_USER;
 
@@ -61,12 +63,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .addFilter(authenticationFilter())
                 .addFilter(new JwtAuthorizationFilter(authenticationManager(), authService, secret))
                 .exceptionHandling()
-                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED));
+                .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
+                .and()
+                .logout(logout -> logout
+                        .permitAll()
+                        .logoutSuccessHandler(
+                                (request, response, authentication) -> response.setStatus(HttpServletResponse.SC_OK)
+                        )
+                );
 
     }
 
     public JsonAuthenticationFilter authenticationFilter() throws Exception {
-        var authenticationFilter =  new JsonAuthenticationFilter(objectMapper);
+        var authenticationFilter = new JsonAuthenticationFilter(objectMapper);
         authenticationFilter.setAuthenticationSuccessHandler(successHandler);
         authenticationFilter.setAuthenticationFailureHandler(failureHandler);
         authenticationFilter.setAuthenticationManager(super.authenticationManager());

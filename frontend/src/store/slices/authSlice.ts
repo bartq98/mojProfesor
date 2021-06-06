@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { DEFAULT_TYPES } from 'utils/constants';
-import { RootState } from '../rootReducer';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {DEFAULT_TYPES} from 'utils/constants';
+import {RootState} from '../rootReducer';
 
 export const initialState: AuthState = {
     user: DEFAULT_TYPES.DEFAULT_USER,

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import login from 'assets/img/login.png';
 import logo from 'assets/img/logo.png';
 import * as dal from 'dal';

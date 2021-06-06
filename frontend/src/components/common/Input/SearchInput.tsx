@@ -1,7 +1,7 @@
 import React from 'react';
-import { Input } from 'antd';
+import {Input} from 'antd';
 import styled from 'styled-components';
-import { COLOURS } from 'utils/constants';
+import {COLOURS} from 'utils/constants';
 
 const { Search } = Input;
 

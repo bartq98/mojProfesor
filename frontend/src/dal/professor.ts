@@ -1,4 +1,4 @@
-import { api } from './api';
+import {api} from './api';
 
 export const getAllProfessors = (page: number, size: number) =>
     api.get('/professor', { params: { page, size } });

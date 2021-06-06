@@ -1,9 +1,9 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { Card, Button } from 'antd';
+import {Card} from 'antd';
 import styled from 'styled-components';
-import { MARKS } from 'utils/constants';
-import { Space } from './common';
+import {MARKS} from 'utils/constants';
+import {Space} from './common';
 
 type Props = {
     children?: React.ReactChild | React.ReactChild[];
