@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MarkRing from './MarkRing';
 
 type Props = {
-    mark: number;
+    mark: number | string;
     title: string;
 };
 

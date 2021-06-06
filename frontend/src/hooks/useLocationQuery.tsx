@@ -10,13 +10,12 @@ const useLocationQuery = ({ keys }: Props) => {
 
     useEffect(() => {
         const urlSearch = new URLSearchParams(location.search);
-
         urlSearch.forEach((value, key) => {
             if (keys.includes(key)) {
                 setResult(prevRes => [...prevRes, value]);
             }
         });
-    }, [location]);
+    }, [location.pathname]);
 
     return {
         params: result,

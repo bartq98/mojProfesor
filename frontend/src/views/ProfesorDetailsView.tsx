@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouteMatch, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { DetailsSection, CommentsSection } from 'components/ProfesorDetails';
+import * as dal from 'dal';
+import { notification, Spin } from 'antd';
 
 const Container = styled.div`
     display: flex;
@@ -12,11 +15,60 @@ const Container = styled.div`
     }
 `;
 
-const ProfesorDetailsView: React.FC = () => (
-    <Container>
-        <DetailsSection />
-        <CommentsSection />
-    </Container>
-);
+const ProfesorDetailsView: React.FC = () => {
+    const [loading, setLoading] = useState(false);
+    const [professor, setProfessor] = useState<IProfessor>();
+    const [opinions, setOpinions] = useState<ISortable<IOpinion[]> | null>(
+        null
+    );
+    const match = useRouteMatch();
+    const history = useHistory();
 
+    useEffect(() => {
+        const fetchProfessor = async () => {
+            const { id } = match.params as any;
+
+            if (!id) {
+                notification.warn({ message: 'Nie znaleziono profesora' });
+                history.push('/professors');
+            }
+
+            const { data } = await dal.professor.getProfessorById(id);
+            setProfessor(data);
+        };
+        setLoading(true);
+        fetchProfessor();
+        setLoading(false);
+    }, [match.path]);
+
+    useEffect(() => {
+        const fetchOpinions = async () => {
+            if (professor?.id) {
+                const { data } = await dal.opinion.getProfessorOpinions(
+                    professor.id
+                );
+                setOpinions(data);
+            }
+        };
+        setLoading(true);
+        fetchOpinions();
+        setLoading(false);
+    }, [professor?.id]);
+
+    return (
+        <Container>
+            {loading ? (
+                <Spin spinning={loading} />
+            ) : (
+                <>
+                    <DetailsSection
+                        professor={professor}
+                        opinions={opinions?.content || []}
+                    />
+                    <CommentsSection opinions={opinions?.content || []} />
+                </>
+            )}
+        </Container>
+    );
+};
 export default ProfesorDetailsView;

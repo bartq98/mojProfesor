@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import search from 'assets/img/search-icon.svg';
 import star from 'assets/img/star-icon.svg';
 import msg from 'assets/img/msg-icon.svg';
@@ -9,10 +10,15 @@ import api from 'dal';
 import 'assets/css/LandingView.css';
 
 const LandingView: React.FC = () => {
-    const [test, setTest] = React.useState(0);
+    const [filter, setFilter] = useState('');
+    const history = useHistory();
+
     React.useEffect(() => {
         api.get('/professor?page=0&size=20');
-    }, [test]);
+    }, []);
+
+    const onSearch = () =>
+        history.push(`/professors${filter && `?filter=${filter}`}`);
 
     return (
         <div className="landing-view">
@@ -21,18 +27,16 @@ const LandingView: React.FC = () => {
                     <p>Znajdź swojego profesora lub uczelnie</p>
                     <input
                         type="text"
+                        onChange={e => setFilter(e.target.value)}
                         className="professor"
                         placeholder="Twój profesor"
                     />
-                    <input
+                    {/* <input
                         type="text"
                         className="school"
                         placeholder="Nazwa uczelni"
-                    />
-                    <button
-                        type="submit"
-                        onClick={() => setTest(prev => prev + 1)}
-                    >
+                    /> */}
+                    <button type="submit" onClick={onSearch}>
                         WYSZUKAJ
                     </button>
                 </div>

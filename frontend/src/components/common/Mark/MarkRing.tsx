@@ -4,12 +4,12 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 type Props = {
-    mark: number;
+    mark: number | string;
 };
 
 const MarkRing: React.FC<Props> = ({ mark }: Props) => (
     <CircularProgressbar
-        value={mark}
+        value={parseFloat(`${mark}`)}
         maxValue={5}
         minValue={1}
         styles={{

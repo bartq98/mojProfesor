@@ -6,7 +6,9 @@ import 'assets/css/StarRating.css';
 type Props = {
     text: string;
     scale: number;
+    onChange: (scale: number) => void;
 };
+
 type State = {
     rate: number;
 };
@@ -20,7 +22,8 @@ class StarRating extends React.Component<Props, State> {
     }
 
     checkStar = (starNumber: number) => {
-        this.setState({ rate: starNumber });
+        const { onChange } = this.props;
+        this.setState({ rate: starNumber }, () => onChange(starNumber));
     };
 
     displayStars = () => {

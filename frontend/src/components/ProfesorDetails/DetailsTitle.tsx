@@ -1,4 +1,8 @@
+import { Button, notification } from 'antd';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory, useRouteMatch } from 'react-router-dom';
+import { authSlice } from 'store/slices';
 import styled from 'styled-components';
 import { Text, Mark } from '../common';
 
@@ -25,17 +29,38 @@ const Section = styled.div<any>`
     align-items: ${props => props.align};
 `;
 
-const DetailsTitle: React.FC<Props> = ({ user, mark }: Props) => (
-    <Contaier className="details-title">
-        <Section align="left">
-            <Title level={1}>{`${user.firstName} ${user.lastName}`}</Title>
-            <Title level={3}>{user.university}</Title>
-            <Title level={3}>Wydział Mechaniczny</Title>
-        </Section>
-        <Section align="center">
-            <MarkNumber mark={mark} />
-        </Section>
-    </Contaier>
-);
+const DetailsTitle: React.FC<Props> = ({ user, mark }: Props) => {
+    const { user: appUser } = useSelector(authSlice.authSelector);
+    const history = useHistory();
+    const match = useRouteMatch();
+
+    const addMark = () => {
+        const { id } = match.params as any;
+        if (!id) {
+            notification.warn({ message: 'Nie odnaleziono profesora' });
+            return;
+        }
+
+        history.push(`/professor/${id}/add-opinion`);
+    };
+    return (
+        <Contaier className="details-title">
+            <Section align="left">
+                <Title
+                    level={1}
+                >{`${user.academicTitle} ${user.firstName} ${user.lastName}`}</Title>
+
+                {appUser.email && (
+                    <Button onClick={addMark} type="primary">
+                        Dodaj ocenę
+                    </Button>
+                )}
+            </Section>
+            <Section align="center">
+                <MarkNumber mark={mark} />
+            </Section>
+        </Contaier>
+    );
+};
 
 export default DetailsTitle;

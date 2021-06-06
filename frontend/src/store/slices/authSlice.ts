@@ -1,4 +1,4 @@
-import { $CombinedState, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { DEFAULT_TYPES } from 'utils/constants';
 import { RootState } from '../rootReducer';
 

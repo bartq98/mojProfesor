@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type Props = {
-    children: React.ReactChild[] | React.ReactChild;
+    children: React.ReactNode;
     direction?: FlexDirection;
     width?: string;
     justify?: JustifyContent;

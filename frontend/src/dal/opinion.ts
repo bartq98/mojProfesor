@@ -10,4 +10,4 @@ export const deleteOpinion = (opinionID: number) =>
     api.delete(`/opinions/${opinionID}`);
 
 export const getProfessorOpinions = (professorId: number) =>
-    api.get(`/opinions/professor${professorId}`);
+    api.get(`/opinions/professor/${professorId}`);

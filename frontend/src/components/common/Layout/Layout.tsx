@@ -7,7 +7,7 @@ type Props = {
     children: React.ReactChild | React.ReactChild[];
 };
 
-const { Content, Footer } = ALayout;
+const { Content } = ALayout;
 
 const StyledLayout = styled(ALayout)`
     display: flex;
@@ -16,12 +16,7 @@ const StyledLayout = styled(ALayout)`
 const Layout: React.FC<Props> = ({ children }: Props) => (
     <StyledLayout>
         <Header />
-        <Content className="site-layout" style={{ marginTop: 64 }}>
-            {children}
-        </Content>
-        {/* <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2018 Created by Ant UED
-        </Footer> */}
+        <Content className="site-layout">{children}</Content>
     </StyledLayout>
 );
 

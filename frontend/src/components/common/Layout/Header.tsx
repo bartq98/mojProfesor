@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Logo from 'assets/img/logo.svg';
 import { COLOURS } from 'utils/constants';
 import { authSlice } from 'store/slices';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import * as dal from 'dal';
 import { SearchInput } from '../Input';
 
 const { Header: AHeader } = ALayout;
@@ -40,6 +41,7 @@ const Img = styled.img`
 const Header: React.VFC = () => {
     const [filter, setFilter] = useState('');
     const history = useHistory();
+    const dispatch = useDispatch();
     const { user, isAuth } = useSelector(authSlice.authSelector);
 
     const onSearch = () =>
@@ -56,7 +58,7 @@ const Header: React.VFC = () => {
                 onChange={setFilter}
             />
             <Menu collapsedWidth={300} mode="horizontal">
-                {isAuth ? (
+                {!user.email ? (
                     <>
                         <Menu.Item key="1">
                             <Link to="/register">Zarejestruj</Link>
@@ -66,9 +68,25 @@ const Header: React.VFC = () => {
                         </Menu.Item>
                     </>
                 ) : (
-                    <Menu.Item key="2">
-                        <Button type="text">Wyloguj</Button>
-                    </Menu.Item>
+                    <>
+                        <Menu.Item key="1">
+                            <Link to="/add-professor">Dodaj profesora</Link>
+                        </Menu.Item>
+                        <Menu.Item key="2">
+                            <Button
+                                onClick={() => {
+                                    // TODO: BOROBORO
+                                    dal.auth.logout();
+                                    dispatch(
+                                        authSlice.authSlice.actions.setLogOut
+                                    );
+                                }}
+                                type="text"
+                            >
+                                Wyloguj
+                            </Button>
+                        </Menu.Item>
+                    </>
                 )}
             </Menu>
         </StyledHeader>

@@ -17,6 +17,8 @@ import {
 } from 'views';
 import { Layout } from 'components/common/Layout';
 import * as dal from 'dal';
+import { authSlice } from 'store/slices/authSlice';
+import { store } from 'store';
 
 type Props = {} & RouteComponentProps;
 
@@ -29,12 +31,16 @@ class App extends Component<Props, State> {
         this.state = {};
     }
 
-    async scomponentDidUpdate(prevProps: Props) {
+    async componentDidUpdate(prevProps: Props) {
         const {
             location: { pathname },
         } = this.props;
         if (prevProps.location.pathname !== pathname) {
-            const { data } = await dal.auth.getMe();
+            await dal.auth
+                .getMe()
+                .catch(() =>
+                    store.default.dispatch(authSlice.actions.setLogOut())
+                );
         }
     }
 
@@ -42,27 +48,26 @@ class App extends Component<Props, State> {
         return (
             <Layout>
                 <Switch>
-                    {/* <Route path="/components" component={ComponentsView} /> */}
                     <Route path="/welcome" component={ComponentsView} />
                     <Route path="/register" component={RegisterView} />
                     <Route path="/login" component={LoginView} />
                     <Route path="/professors" component={ProfessorsView} />
                     <Route
                         exact
-                        path="/profesor/:id"
+                        path="/professor/:id"
                         component={ProfesorDetailsView}
                     />
                     <Route
-                        path="/profesor/add"
+                        path="/professor/add"
                         component={ProfesorDetailsView} // todo
                     />
                     <Route
-                        path="/profesor/:id/add-opinion"
+                        path="/professor/:id/add-opinion"
                         component={AddOpinionView}
                     />
+                    <Route path="/add-professor" component={AddProfessorView} />
 
                     <Route path="/" component={LandingView} />
-                    <Route path="/add-professor" component={AddProfessorView} />
                 </Switch>
             </Layout>
         );
