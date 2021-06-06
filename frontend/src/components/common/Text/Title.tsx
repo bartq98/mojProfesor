@@ -14,7 +14,7 @@ const Level1 = styled.h1`
     ${baseLevel}
     font-size: 60px;
     @media screen and (max-width: 550px) {
-        font-size: 46px;
+        font-size: 40px;
     }
 `;
 const Level2 = styled.h2`

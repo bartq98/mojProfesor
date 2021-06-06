@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import login from 'assets/img/login.png';
 import logo from 'assets/img/logo.png';
+import * as dal from 'dal';
 
 export const Register = () => {
-    const [state, setState] = useState({
-        username: '',
+    const [state, setState] = useState<IRegisterModel>({
         email: '',
         password: '',
         confirmPassword: '',
     });
+
+    const history = useHistory();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
@@ -23,7 +26,13 @@ export const Register = () => {
     ) => {
         e.preventDefault();
         if (state.password === state.confirmPassword) {
-            console.log(state.email);
+            dal.user
+                .addUser({
+                    email: state.email,
+                    password: state.password,
+                    role: 'ROLE_USER',
+                })
+                .then(() => history.push('/'));
         } else {
             console.log('err');
         }
@@ -40,13 +49,6 @@ export const Register = () => {
                         <img src={logo} alt="" />
                     </div>
                     <h1>Zarejestruj się</h1>
-                    <input
-                        type="text"
-                        id="username"
-                        placeholder="Nazwa użytkownika"
-                        value={state.username}
-                        onChange={handleChange}
-                    />
                     <input
                         type="text"
                         id="email"
@@ -68,6 +70,7 @@ export const Register = () => {
                         value={state.confirmPassword}
                         onChange={handleChange}
                     />
+
                     <button
                         type="submit"
                         className="btn"
@@ -76,9 +79,11 @@ export const Register = () => {
                         Zarejestruj się
                     </button>
                     <p>Posiadasz już konto?</p>
-                    <button type="button" className="btn-txt btn">
-                        Zaloguj się
-                    </button>
+                    <Link to="/login">
+                        <button type="button" className="btn-txt btn">
+                            Zaloguj się
+                        </button>
+                    </Link>
                 </form>
             </div>
         </div>

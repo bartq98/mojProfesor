@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import login from 'assets/img/login.png';
 import logo from 'assets/img/logo.png';
+import * as dal from 'dal';
+import { notification } from 'antd';
+import { authSlice } from 'store/slices/authSlice';
+import { useDispatch } from 'react-redux';
 
 export const Login: React.VFC = () => {
     const [state, setState] = useState({
         email: '',
         password: '',
     });
+    const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
@@ -16,11 +23,21 @@ export const Login: React.VFC = () => {
         }));
     };
 
-    const handleSubmitClick = (
+    const handleSubmitClick = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
-        console.log(state.email);
+        await dal.auth
+            .login({ email: state.email, password: state.password })
+            .then(res => res.data)
+            .then(() => {
+                notification.success({ message: 'Pomyślnie zalogowano' });
+                dispatch(authSlice.actions.setUser({ email: state.email }));
+                history.push('/');
+            })
+            .catch(() =>
+                notification.error({ message: 'Nie udało się zalogować' })
+            );
     };
 
     return (
@@ -53,9 +70,11 @@ export const Login: React.VFC = () => {
                         Zaloguj się
                     </button>
                     <p>Nie masz jeszcze konta?</p>
-                    <button type="button" className="btn-txt btn">
-                        Zarejestruj się
-                    </button>
+                    <Link to="/register">
+                        <button type="button" className="btn-txt btn">
+                            Zarejestruj się
+                        </button>
+                    </Link>
                 </form>
                 <div className="image">
                     <img src={login} alt="" />

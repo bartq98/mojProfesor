@@ -1,10 +1,13 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { Card, Button } from 'antd';
 import styled from 'styled-components';
+import { MARKS } from 'utils/constants';
 import { Space } from './common';
 
 type Props = {
     children?: React.ReactChild | React.ReactChild[];
+    marks: IOpinionDetails;
 };
 
 const StyledCard = styled(Card)`
@@ -25,16 +28,15 @@ const StyledCard = styled(Card)`
     }
 `;
 
-const OpinionCard: React.FC<Props> = ({ children }: Props) => (
+const OpinionCard: React.FC<Props> = ({ children, marks }: Props) => (
     <StyledCard
         title={
             <Space justify="space-between" className="opinion-marks-space">
-                <p>Atrakcyjność zajęć - 5</p>
-                <p>Atrakcyjność zajęć - 5</p>
-                <p>Atrakcyjność zajęć - 5</p>
-                <p>Atrakcyjność zajęć - 5</p>
-                <p>Atrakcyjność zajęć - 5</p>
-                <p>Atrakcyjność zajęć - 5</p>
+                {marks.map(({ opinion, key }) => (
+                    <p>
+                        {MARKS[key]}- {opinion}
+                    </p>
+                ))}
             </Space>
         }
     >
@@ -46,9 +48,5 @@ const OpinionCard: React.FC<Props> = ({ children }: Props) => (
         </Space>
     </StyledCard>
 );
-
-OpinionCard.defaultProps = {
-    children: <></>,
-};
 
 export default OpinionCard;

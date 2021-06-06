@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocationQuery } from 'hooks';
 import styled from 'styled-components';
 import { ProfessorItem } from 'components/ProfessorsView';
+import * as dal from 'dal';
+import { useLocation, useRouteMatch } from 'react-router-dom';
 
 type Props = {};
 
@@ -21,52 +23,44 @@ const Container = styled.div`
 `;
 
 const ProfessorsView: React.FC = () => {
-    const { params } = useLocationQuery({ keys: ['filter'] });
+    const [professors, setProfessors] = useState<IProfessor[]>([]);
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log(location);
+
+        const fetchProfessors = async () => {
+            const { search } = location;
+            const { data } = await dal.professor.getAllProfessors(0, 20);
+            const response: IGetAllProfessorsResponse = data;
+            if (!search) {
+                return setProfessors(response.content);
+            }
+            const filter = search.replace('?filter=', '');
+            // eslint-disable-next-line no-shadow
+            const professors = response.content.filter(
+                ({ firstName, lastName }) =>
+                    `${lastName.toLocaleLowerCase()} ${firstName.toLocaleLowerCase()}`.includes(
+                        filter.toLocaleLowerCase()
+                    )
+            );
+
+            return setProfessors(professors);
+        };
+
+        fetchProfessors();
+    }, [location]);
 
     return (
         <Container>
-            <ProfessorItem
-                firstName="Jan"
-                lastName="Kowalski"
-                university="Politechnika Krakowska"
-                id="fsdfsdfsd"
-            />
-            <ProfessorItem
-                firstName="Jan"
-                lastName="Kowalski"
-                university="Politechnika Krakowska"
-                id="fsdfsdfsd"
-            />
-            <ProfessorItem
-                firstName="Jan"
-                lastName="Kowalski"
-                university="Politechnika Krakowska"
-                id="fsdfsdfsd"
-            />
-            <ProfessorItem
-                firstName="Jan"
-                lastName="Kowalski"
-                university="Politechnika Krakowska"
-                id="fsdfsdfsd"
-            />
-            <ProfessorItem
-                firstName="Jan"
-                lastName="Kowalski"
-                university="Politechnika Krakowska"
-                id="fsdfsdfsd"
-            />
-            <ProfessorItem
-                firstName="Jan"
-                lastName="Kowalski"
-                university="Politechnika Krakowska"
-                id="fsdfsdfsd"
-            />
-            <ProfessorItem
-                firstName="Jan"
-                lastName="Kowalski"
-                university="Politechnika Krakowska"
-                id="fsdfsdfsd"
-            />
+            {professors.map(({ firstName, lastName, academicTitle, id }) => (
+                <ProfessorItem
+                    firstName={firstName}
+                    lastName={lastName}
+                    title={academicTitle}
+                    id={id}
+                />
+            ))}
         </Container>
     );
 };

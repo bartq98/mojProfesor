@@ -1,5 +1,10 @@
 import { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {
+    Switch,
+    Route,
+    RouteComponentProps,
+    withRouter,
+} from 'react-router-dom';
 import {
     ComponentsView,
     ProfesorDetailsView,
@@ -11,45 +16,62 @@ import {
     AddProfessorView,
 } from 'views';
 import { Layout } from 'components/common/Layout';
+import * as dal from 'dal';
+import { authSlice } from 'store/slices/authSlice';
+import { store } from 'store';
 
-type Props = {};
+type Props = {} & RouteComponentProps;
 
 type State = {};
 
-export default class App extends Component<Props, State> {
+class App extends Component<Props, State> {
     constructor(props: Props) {
         super(props);
 
         this.state = {};
     }
 
+    async componentDidUpdate(prevProps: Props) {
+        const {
+            location: { pathname },
+        } = this.props;
+        if (prevProps.location.pathname !== pathname) {
+            await dal.auth
+                .getMe()
+                .catch(() =>
+                    store.default.dispatch(authSlice.actions.setLogOut())
+                );
+        }
+    }
+
     render() {
         return (
             <Layout>
                 <Switch>
-                    {/* <Route path="/components" component={ComponentsView} /> */}
                     <Route path="/welcome" component={ComponentsView} />
                     <Route path="/register" component={RegisterView} />
                     <Route path="/login" component={LoginView} />
-                    <Route path="/profesors" component={ProfessorsView} />
+                    <Route path="/professors" component={ProfessorsView} />
                     <Route
                         exact
-                        path="/profesor/:id"
+                        path="/professor/:id"
                         component={ProfesorDetailsView}
                     />
                     <Route
-                        path="/profesor/add"
+                        path="/professor/add"
                         component={ProfesorDetailsView} // todo
                     />
                     <Route
-                        path="/profesor/:id/add-opinion"
+                        path="/professor/:id/add-opinion"
                         component={AddOpinionView}
                     />
+                    <Route path="/add-professor" component={AddProfessorView} />
 
                     <Route path="/" component={LandingView} />
-                    <Route path="/add-professor" component={AddProfessorView} />
                 </Switch>
             </Layout>
         );
     }
 }
+
+export default withRouter(App);

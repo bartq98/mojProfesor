@@ -22,14 +22,14 @@ const Section = styled.div<any>`
 type Props = {
     firstName: string;
     lastName: string;
-    university: string;
-    id: string;
+    title: string;
+    id: number;
 };
 
 const ProfessorItem: React.FC<Props> = ({
     firstName,
     lastName,
-    university,
+    title,
     id,
 }: Props) => {
     const history = useHistory();
@@ -37,10 +37,9 @@ const ProfessorItem: React.FC<Props> = ({
         <Section
             key={id}
             align="left"
-            onClick={() => history.push(`/profesor/${id}`)}
+            onClick={() => history.push(`/professor/${id}`)}
         >
-            <Title level={1}>{`${firstName} ${lastName}`}</Title>
-            <Title level={3}>{`${university}`}</Title>
+            <Title level={1}>{`${title} ${firstName} ${lastName}`}</Title>
         </Section>
     );
 };
