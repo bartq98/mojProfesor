@@ -1,10 +1,9 @@
 /* eslint-disable */
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-import { COLOURS } from 'utils/constants';
-import { Text, Mark, Space } from 'components/common';
-import { MARKS } from 'utils/constants';
-import { Spin } from 'antd';
+import {COLOURS, MARKS} from 'utils/constants';
+import {Mark, Space, Text} from 'components/common';
+import {Spin} from 'antd';
 import DetailsTitle from './DetailsTitle';
 
 type Props = {

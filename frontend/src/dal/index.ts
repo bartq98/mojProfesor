@@ -1,4 +1,4 @@
-import { api } from './api';
+import {api} from './api';
 
 import * as auth from './auth';
 import * as like from './like';

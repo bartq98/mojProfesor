@@ -1,5 +1,5 @@
-import { combineReducers } from '@reduxjs/toolkit';
-import { authSlice } from './slices';
+import {combineReducers} from '@reduxjs/toolkit';
+import {authSlice} from './slices';
 
 const { default: auth } = authSlice;
 

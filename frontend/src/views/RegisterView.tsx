@@ -1,5 +1,5 @@
 import React from 'react';
-import { Register } from '../components/login';
+import {Register} from '../components/login';
 import 'assets/css/Login.css';
 
 const RegisterView: React.FC = () => (

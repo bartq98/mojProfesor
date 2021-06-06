@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import React, {useState} from 'react';
+import {useHistory, useRouteMatch} from 'react-router-dom';
 import StarRating from 'components/common/StarRating';
-import { Space } from 'components/common';
-import { Card, Button, Input, notification } from 'antd';
+import {Space} from 'components/common';
+import {Button, Card, Input, notification} from 'antd';
 import styled from 'styled-components';
 import * as dal from 'dal';
 import 'assets/css/AddOpinionView.css';

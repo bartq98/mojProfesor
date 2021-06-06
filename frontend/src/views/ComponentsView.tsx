@@ -1,6 +1,6 @@
 import React from 'react';
-import { Space } from 'antd';
-import { Input, Mark } from 'components/common';
+import {Space} from 'antd';
+import {Input, Mark} from 'components/common';
 import styled from 'styled-components';
 
 const { SearchInput } = Input;

@@ -1,10 +1,10 @@
-import { Button, notification } from 'antd';
+import {Button, notification} from 'antd';
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { useHistory, useRouteMatch } from 'react-router-dom';
-import { authSlice } from 'store/slices';
+import {useSelector} from 'react-redux';
+import {useHistory, useRouteMatch} from 'react-router-dom';
+import {authSlice} from 'store/slices';
 import styled from 'styled-components';
-import { Text, Mark } from '../common';
+import {Mark, Text} from '../common';
 
 type Props = {
     user: any;

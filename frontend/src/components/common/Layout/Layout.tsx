@@ -1,7 +1,7 @@
 import React from 'react';
-import { Layout as ALayout } from 'antd';
+import {Layout as ALayout} from 'antd';
 import styled from 'styled-components';
-import { Header } from '.';
+import {Header} from '.';
 
 type Props = {
     children: React.ReactChild | React.ReactChild[];

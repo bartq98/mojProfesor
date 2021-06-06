@@ -1,5 +1,5 @@
-import { notification } from 'antd';
-import React, { useState } from 'react';
+import {notification} from 'antd';
+import React, {useState} from 'react';
 import * as dal from 'dal';
 
 import 'assets/css/AddProfessorView.css';
