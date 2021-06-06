@@ -1,24 +1,19 @@
-import { Component } from 'react';
+import {Component} from 'react';
+import {Route, RouteComponentProps, Switch, withRouter,} from 'react-router-dom';
 import {
-    Switch,
-    Route,
-    RouteComponentProps,
-    withRouter,
-} from 'react-router-dom';
-import {
-    ComponentsView,
-    ProfesorDetailsView,
-    LoginView,
-    LandingView,
-    RegisterView,
     AddOpinionView,
-    ProfessorsView,
     AddProfessorView,
+    ComponentsView,
+    LandingView,
+    LoginView,
+    ProfesorDetailsView,
+    ProfessorsView,
+    RegisterView,
 } from 'views';
-import { Layout } from 'components/common/Layout';
+import {Layout} from 'components/common/Layout';
 import * as dal from 'dal';
-import { authSlice } from 'store/slices/authSlice';
-import { store } from 'store';
+import {authSlice} from 'store/slices/authSlice';
+import {store} from 'store';
 
 type Props = {} & RouteComponentProps;
 

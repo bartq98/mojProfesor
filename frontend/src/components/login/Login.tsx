@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 import login from 'assets/img/login.png';
 import logo from 'assets/img/logo.png';
 import * as dal from 'dal';
-import { notification } from 'antd';
-import { authSlice } from 'store/slices/authSlice';
-import { useDispatch } from 'react-redux';
+import {notification} from 'antd';
+import {authSlice} from 'store/slices/authSlice';
+import {useDispatch} from 'react-redux';
 
 export const Login: React.VFC = () => {
     const [state, setState] = useState({

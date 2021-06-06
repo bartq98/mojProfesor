@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useRouteMatch, useHistory } from 'react-router-dom';
+import React, {useEffect, useState} from 'react';
+import {useHistory, useRouteMatch} from 'react-router-dom';
 import styled from 'styled-components';
-import { DetailsSection, CommentsSection } from 'components/ProfesorDetails';
+import {CommentsSection, DetailsSection} from 'components/ProfesorDetails';
 import * as dal from 'dal';
-import { notification, Spin } from 'antd';
+import {notification, Spin} from 'antd';
 
 const Container = styled.div`
     display: flex;

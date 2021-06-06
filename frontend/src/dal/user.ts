@@ -1,4 +1,4 @@
-import { api } from './api';
+import {api} from './api';
 
 export const addUser = (register: IRegisterModelRequest) =>
     api.post('/user', { ...register });

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, {css} from 'styled-components';
 
 type Props = {
     level: 1 | 2 | 3 | 4 | 5;

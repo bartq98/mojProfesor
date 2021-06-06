@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { COLOURS } from 'utils/constants';
+import {COLOURS} from 'utils/constants';
 import OpinionCard from 'components/OpinionCard';
 
 type Props = {

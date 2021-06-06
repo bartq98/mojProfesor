@@ -1,6 +1,6 @@
 import React from 'react';
-import { COLOURS } from 'utils/constants';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import {COLOURS} from 'utils/constants';
+import {CircularProgressbar} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 type Props = {
