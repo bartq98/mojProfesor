@@ -65,46 +65,183 @@ A kiedy dowiesz się wszystkiego na temat swoich Prowadzących, daj nam znać, c
 
 <h3> • Wyszukiwanie Profesora </h3>
 Aplikacji MójProfesor pozwoli Ci znaleźć Twojego Profesora, bez konieczności rejestracji! Wystarczy, że podasz imię i nazwisko Prowadzącego i już po chwili dowiesz się, jak oceniają go inni Studenci.
-<img>
+<br><span style="color:rgba(0,0,0,0);">.</span>
+<img src="./readme_assets/search.gif" alt=""/>
 
 <h3> • Rejestracja </h3>
-Możesz również dołączyć do naszej społeczności i zarejestrować się. Zapewniamy pełną <span style="color: gray">anonimowość</span> - przy rejestracji poprosimy Cię jedynie o adres e-mail
+Możesz również dołączyć do naszej społeczności i zarejestrować się. Zapewniamy pełną <span style="color: gray">anonimowość</span> 🤫 - przy rejestracji poprosimy Cię jedynie o adres e-mail.
+<br><span style="color:rgba(0,0,0,0);">.</span>
 <img src="./readme_assets/register.gif" alt=""/>
 
 <h3> • Logowanie </h3>
 Zaloguj się, aby móc korzystać ze wszystkich funkcjonalności naszej aplikacji. E-mail, hasło i... nasza aplikacja jest w pełni do Twojej dyspozycji!
-<img>
+<br><span style="color:rgba(0,0,0,0);">.</span>
+<img src="./readme_assets/login.gif" alt=""/>
 
 <h3> • Dodawanie opinii </h3>
 Jako zalogowany Użytkownik możesz podzielić się ze wszystkimi swoją oceną na temat Prowadzących. Tutaj też przypominamy o pełnej <span style="color: gray">anonimowości</span> 🤫!
-<img>
+<br><span style="color:rgba(0,0,0,0);">.</span>
+<img src="./readme_assets/rate.gif" alt=""/>
 
 <h3> • Dodawanie Profesora </h3>
 Nie znalazłeś swojego Profesora? Nic straconego! Dodaj go do naszej bazy i jako pierwszy dodaj ocenę. Inni Studenci będą ci wdzięczni :wink:!
-<img>
+<br><span style="color:rgba(0,0,0,0);">.</span>
+<img src="./readme_assets/add.gif" alt=""/>
 
 <h2 id="live-demo" style="color: rgb(55,148,255);"> 🚀 Live demo </h2>
 
-Chcesz już teraz przetestować naszą aplikację? Kliknij <a href="#">tutaj!</a>
+Chcesz już teraz przetestować naszą aplikację? Kliknij <a href="https://moj-profesor.herokuapp.com/">tutaj!</a>
 
 <h2 id="configuration" style="color: rgb(55,148,255);"> 💻 Uruchomienie projektu </h2>
 
-Wykonaj kolejno polecenia
+Aby uruchomić ten projekt musisz wcześniej zainstalować Node.js oraz Docker na swoim komputerze. Następnie wykonaj poniższe kroki:
 
 1. Pobierz repozytorium:
 
-`git clone ...`
+```
+git clone https://github.com/bartq98/mojProfesor.git
+```
 
-2. Przejdź do folderu z projektem...
+2. Przejdź do folderu z projektem:
 
-3. Uruchom obraz z bazą danych, serwerem, klientem
+```
+cd mojProfesor
+```
 
-`docker...`
+3. Uruchom Dockera:
+
+```
+docker-compose up
+```
+
+4. Przejdź do podfolderu `frontend`:
+
+```
+cd frontend
+```
+
+5. Zainstaluj zależności:
+
+```
+npm install
+```
+
+6. Uruchom aplikację:
+
+```
+npm start
+```
+
+7. Uruchom przeglądarkę, wejdź na `localhost:3000` i ciesz się działającą apikacją!
+
+<h1 style="color: red">To jakoś logicznie tu umieścić albo usunąć <h1>
+
+<!--  -->
+
+### Local development
+
+| Service       | Hostname                    | IP         | Ports exposed | Purpose               |
+|---------------|-----------------------------|------------|---------------|-----------------------|
+| api           | mojprofesor_api_1           | 172.18.0.3 | 7000->80      | Spring-boot API       |
+| postgres_db   | mojprofesor_postgres_db_1   | 172.18.0.2 | 6432->5432    | Database              |
+
+#### Run dev environment
+
+From root project run:
+
+`docker-compose up`
+
+#### Restart api service
+docker-compose up --build --force-recreate --no-deps api
+
+#### Backend docs
+http://localhost:7000/swagger-ui/index.html
+
+<!--  -->
 
 
 <h2 id="folder-structure" style="color: rgb(55,148,255)"> 🌵 Struktura projektu </h2>
 
-TODO
+```
+mojProfesor
+├───backend
+│   ├───.mvn
+│   │   └───wrapper
+│   ├───src
+│   │   ├───main
+│   │   │   ├───java
+│   │   │   │   └───com
+│   │   │   │       └───mojprofesor
+│   │   │   │           └───backend
+│   │   │   │               ├───configuration
+│   │   │   │               │   └───jwt
+│   │   │   │               ├───controller
+│   │   │   │               ├───entity
+│   │   │   │               ├───exception
+│   │   │   │               ├───payload
+│   │   │   │               ├───repository
+│   │   │   │               └───service
+│   │   │   └───resources
+│   │   └───test
+│   │       └───java
+│   │           └───com
+│   │               └───mojprofesor
+│   │                   └───backend
+│   └───target
+│       ├───classes
+│       │   └───com
+│       │       └───mojprofesor
+│       │           └───backend
+│       │               ├───configuration
+│       │               │   └───jwt
+│       │               ├───controller
+│       │               ├───entity
+│       │               ├───exception
+│       │               ├───payload
+│       │               ├───repository
+│       │               └───service
+│       ├───generated-sources
+│       │   └───annotations
+│       ├───generated-test-sources
+│       │   └───test-annotations
+│       ├───maven-status
+│       │   └───maven-compiler-plugin
+│       │       ├───compile
+│       │       │   └───default-compile
+│       │       └───testCompile
+│       │           └───default-testCompile
+│       └───test-classes
+│           └───com
+│               └───mojprofesor
+│                   └───backend
+└───frontend
+    ├───public
+    └───src
+        ├───assets
+        │   ├───css
+        │   └───img
+        ├───components
+        │   ├───common
+        │   │   ├───Input
+        │   │   ├───Layout
+        │   │   ├───Mark
+        │   │   ├───SignedIcon
+        │   │   ├───Star
+        │   │   ├───StarRating
+        │   │   └───Text
+        │   ├───login
+        │   ├───ProfesorDetails
+        │   └───ProfessorsView
+        ├───dal
+        ├───hooks
+        ├───store
+        │   └───slices
+        ├───typing
+        │   └───interfaces
+        ├───utils
+        │   └───constants
+        └───views
+```
 
 
 <h2 id="contributors" style="color: rgb(55,148,255);"> 👷 Kontrybutorzy </h2>
@@ -159,28 +296,3 @@ Projekt współtworzyli studenci trzeciego roku Informatyki na Wydziale Informat
     </a>
   </h3>
 </div>
-
----
-
-# OLD
-
-# mojProfesor
-
-### Local development
-
-| Service       | Hostname                    | IP         | Ports exposed | Purpose               |
-|---------------|-----------------------------|------------|---------------|-----------------------|
-| api           | mojprofesor_api_1           | 172.18.0.3 | 7000->80      | Spring-boot API       |
-| postgres_db   | mojprofesor_postgres_db_1   | 172.18.0.2 | 6432->5432    | Database              |
-
-#### Run dev environment
-
-From root project run:
-
-`docker-compose up`
-
-#### Restart api service
-docker-compose up --build --force-recreate --no-deps api
-
-#### Backend docs
-http://localhost:7000/swagger-ui/index.html
