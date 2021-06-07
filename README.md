@@ -21,7 +21,7 @@
     </a>
 </div>
 <br>
-<h2 align="center"> Mój Profesor - wszystkie opinie na temat Twoich Prowadzących! </h2>
+<h2 align="center"> MójProfesor - wszystkie opinie na temat Twoich Prowadzących! </h2>
 <br>
 <div align="center">
   <h3>
@@ -55,7 +55,7 @@
 
 <h2 id="description" style="color: rgb(55,148,255);"> 📝 Opis projektu </h2>
 
-Mój Profesor to odnowiona wersja doskonale znanego wszystkim Studentom portalu z opiniami o Prowadzących. Tylko tutaj dowiesz się, z kim będziesz miał zajęcia w następnym semestrze, co na temat Twoich Prowadzących sądzą inni studenci, a także na co zwrócić uwagę podczas nauki i na jakie zajęcia warto się zapisać. 
+MójProfesor to odnowiona wersja doskonale znanego wszystkim Studentom portalu z opiniami o Prowadzących. Tylko tutaj dowiesz się, z kim będziesz miał zajęcia w następnym semestrze, co na temat Twoich Prowadzących sądzą inni studenci, a także na co zwrócić uwagę podczas nauki i na jakie zajęcia warto się zapisać. 
 
 Masz własne przemyślenia na temat zajęć prowadzonych na Twojej uczelni? Nie zgadzasz się z opiniami dodanymi przez innych Użytkowników? A może chcesz osobiście docenić pracę swojego ulubionego Prowadzącego? Dodaj swoją opinię i pomóż innym Studentom rozwiać swoje wątpliwości!
 
@@ -63,22 +63,24 @@ A kiedy dowiesz się wszystkiego na temat swoich Prowadzących, daj nam znać, c
 
 <h2 id="functions" style="color: rgb(55,148,255);"> 🎯 Fukcjonalności </h2>
 
-Aplikacja MójProfesor pozwala w łatwy sposób dowiedzieć się...
-Do głównych funkcjonalności należą:
-
-<h3> • Logowanie </h3>
+<h3> • Wyszukiwanie Profesora </h3>
+Aplikacji MójProfesor pozwoli Ci znaleźć Twojego Profesora, bez konieczności rejestracji! Wystarczy, że podasz imię i nazwisko Prowadzącego i już po chwili dowiesz się, jak oceniają go inni Studenci.
 <img>
 
 <h3> • Rejestracja </h3>
-<img>
+Możesz również dołączyć do naszej społeczności i zarejestrować się. Zapewniamy pełną <span style="color: gray">anonimowość</span> - przy rejestracji poprosimy Cię jedynie o adres e-mail
+<img src="./readme_assets/register.gif" alt=""/>
 
-<h3> • Wyszukiwanie Profesora </h3>
+<h3> • Logowanie </h3>
+Zaloguj się, aby móc korzystać ze wszystkich funkcjonalności naszej aplikacji. E-mail, hasło i... nasza aplikacja jest w pełni do Twojej dyspozycji!
 <img>
 
 <h3> • Dodawanie opinii </h3>
+Jako zalogowany Użytkownik możesz podzielić się ze wszystkimi swoją oceną na temat Prowadzących. Tutaj też przypominamy o pełnej <span style="color: gray">anonimowości</span> 🤫!
 <img>
 
-<h3> • ? </h3>
+<h3> • Dodawanie Profesora </h3>
+Nie znalazłeś swojego Profesora? Nic straconego! Dodaj go do naszej bazy i jako pierwszy dodaj ocenę. Inni Studenci będą ci wdzięczni :wink:!
 <img>
 
 <h2 id="live-demo" style="color: rgb(55,148,255);"> 🚀 Live demo </h2>
@@ -126,8 +128,8 @@ Projekt współtworzyli studenci trzeciego roku Informatyki na Wydziale Informat
 </table>
 <table align="center">
   <tr>
-    <td align="center"><a href="https://github.com/Gladias"><img src="https://avatars.githubusercontent.com/u/15852857?v=4" width="100px;" alt=""/><br /><sub><b>Aleksander Dróżdż</b></sub></a><br /><a title="Tools" href="#backend">:hammer:</a></td>
     <td align="center"><a href="https://github.com/VoodooPrograms"><img src="https://avatars.githubusercontent.com/u/23705516?v=4" width="100px;" alt=""/><br /><sub><b>Bartosz Belski</b></sub></a><br /><a title="Leader" href="#leader">:rocket:</a> <a title="Tools" href="#devops">:wrench:</a></td>
+    <td align="center"><a href="https://github.com/Gladias"><img src="https://avatars.githubusercontent.com/u/15852857?v=4" width="100px;" alt=""/><br /><sub><b>Aleksander Dróżdż</b></sub></a><br /><a title="Tools" href="#backend">:hammer:</a></td>
     <td align="center"><a href="https://github.com/dziewonskajolanta"><img src="https://avatars.githubusercontent.com/u/31817841?v=4" width="100px;" alt=""/><br /><sub><b>Jolanta Dziewońska</b></sub></a><br /><a title="Tools" href="#backend">:hammer:</a></td>
     <td align="center"><a href="https://github.com/oneirros"><img src="https://avatars.githubusercontent.com/u/62250112?v=4" width="100px;" alt=""/><br /><sub><b>Jakub Białoń</b></sub></a><br /><a title="Tools" href="#backend">:hammer:</a></td>
     <td align="center"><a href="https://github.com/festinalentee"><img src="https://avatars.githubusercontent.com/u/62673333?v=4" width="100px;" alt=""/><br /><sub><b>Karolina Bieńkowska</b></sub></a><br /><a title="Tools" href="#frontend">:pencil2:</a></td>
