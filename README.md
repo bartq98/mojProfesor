@@ -61,6 +61,7 @@ Masz własne przemyślenia na temat zajęć prowadzonych na Twojej uczelni? Nie 
 
 A kiedy dowiesz się wszystkiego na temat swoich Prowadzących, daj nam znać, czy nasz projekt Ci się spodobał i zostaw gwiazdkę, aby zmotywować nas do dalszej pracy :relaxed:! 
 
+<br>
 <h2 id="functions" style="color: rgb(55,148,255);"> 🎯 Fukcjonalności </h2>
 
 <h3> • Wyszukiwanie Profesora </h3>
@@ -88,10 +89,12 @@ Nie znalazłeś swojego Profesora? Nic straconego! Dodaj go do naszej bazy i jak
 <br><span style="color:rgba(0,0,0,0);">.</span>
 <img src="./readme_assets/add.gif" alt=""/>
 
+<br>
 <h2 id="live-demo" style="color: rgb(55,148,255);"> 🚀 Live demo </h2>
 
 Chcesz już teraz przetestować naszą aplikację? Kliknij <a href="https://moj-profesor.herokuapp.com/">tutaj!</a>
 
+<br>
 <h2 id="configuration" style="color: rgb(55,148,255);"> 💻 Uruchomienie projektu </h2>
 
 Aby uruchomić ten projekt musisz wcześniej zainstalować Node.js oraz Docker na swoim komputerze. Następnie wykonaj poniższe kroki:
@@ -111,7 +114,7 @@ cd mojProfesor
 3. Uruchom Dockera:
 
 ```
-docker-compose up
+docker-compose up --build --force-recreate -d
 ```
 
 4. Przejdź do podfolderu `frontend`:
@@ -134,32 +137,21 @@ npm start
 
 7. Uruchom przeglądarkę, wejdź na `localhost:3000` i ciesz się działającą apikacją!
 
-<h1 style="color: red">To jakoś logicznie tu umieścić albo usunąć <h1>
-
-<!--  -->
-
-### Local development
+<br>
+<h3>Wykorzystywane porty: <h3>
 
 | Service       | Hostname                    | IP         | Ports exposed | Purpose               |
 |---------------|-----------------------------|------------|---------------|-----------------------|
 | api           | mojprofesor_api_1           | 172.18.0.3 | 7000->80      | Spring-boot API       |
 | postgres_db   | mojprofesor_postgres_db_1   | 172.18.0.2 | 6432->5432    | Database              |
 
-#### Run dev environment
+<br>
+<h3>Dokumentacja backend'u:</h3>
 
-From root project run:
-
-`docker-compose up`
-
-#### Restart api service
-docker-compose up --build --force-recreate --no-deps api
-
-#### Backend docs
+```
 http://localhost:7000/swagger-ui/index.html
-
-<!--  -->
-
-
+```
+<br>
 <h2 id="folder-structure" style="color: rgb(55,148,255)"> 🌵 Struktura projektu </h2>
 
 ```
@@ -243,7 +235,7 @@ mojProfesor
         └───views
 ```
 
-
+<br>
 <h2 id="contributors" style="color: rgb(55,148,255);"> 👷 Kontrybutorzy </h2>
 
 Projekt współtworzyli studenci trzeciego roku Informatyki na Wydziale Informatyki i Telekomunikacji Politechniki Krakowskiej (<a href="#emoji_key">[oznaczenia]</a>):
@@ -273,6 +265,7 @@ Projekt współtworzyli studenci trzeciego roku Informatyki na Wydziale Informat
   </tr>
 </table>
 
+<br>
 <div id="emoji_key">
   <h2> 🔑 Oznaczenia:</h2>
   <h3>
@@ -296,3 +289,6 @@ Projekt współtworzyli studenci trzeciego roku Informatyki na Wydziale Informat
     </a>
   </h3>
 </div>
+
+<br>
+<h1 style="color: rgb(55,148,255);">Koniec! :blue_heart:</h1>
